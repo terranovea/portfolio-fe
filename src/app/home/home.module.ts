@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { AchievementGridComponent } from './achievement-grid/achievement-grid.component';
+import { AchievementCardComponent } from './achievement-grid/achievement-card/achievement-card.component';
 
 
 @NgModule({
@@ -14,6 +16,6 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,AchievementGridComponent,AchievementCardComponent]
 })
 export class HomePageModule {}
