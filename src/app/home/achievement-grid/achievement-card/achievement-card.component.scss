@@ -1,23 +1,39 @@
 ion-card{
     width:12rem;
-    --max-lines:4;
+    --max-content-lines:4;
+    --max-title-lines:2;
     --line-height: 1.5; //default for card content: 1.5
     --btn-height:calc(var(--line-height)*2em);
     --btn-padding-bottom:0.5em;
 }
 
-.cutoff-text{
+ion-card-title{
+    font-size:1em;
+    font-weight: 600;
+    line-height:var(--line-height);
+
     display:-webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: var(--max-lines);
+    -webkit-line-clamp: var(--max-title-lines);
+    overflow:hidden;
+
+    height:calc(var(--max-title-lines)*var(--line-height)*1em);
+}
+
+.cutoff-text{
+    display:-webkit-box;
+    
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--max-content-lines);
     padding-bottom: 0%;
     //margin-bottom:calc(var(--btn-height) + var(--btn-padding-bottom));// var(--line-height));
     overflow:hidden;
+    height: calc(var(--max-content-lines)*var(--line-height)*1em);
 }
 
 .desc-fade-gradient{
     position:absolute;
-    height:calc(var(--max-lines)*var(--line-height)*1em);
+    height:calc(var(--max-content-lines)*var(--line-height)*1em);
     width:100%;
     bottom:0em;
     //z-index: 2;

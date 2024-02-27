@@ -1,5 +1,5 @@
-<ion-card>
-  <img alt="img not found?" [src]="achiev.imgUrl">
+<ion-card [routerLink]="achiev.pageUrl">
+  <ion-img alt="img not found?" [src]="achiev.imgUrl"></ion-img>
   <ion-card-header>
     <ion-card-title>{{achiev.title}}</ion-card-title>
     <ion-card-subtitle><small>{{achiev.startDate.getFullYear()}} - {{achiev.endDate.getFullYear()}}</small></ion-card-subtitle>

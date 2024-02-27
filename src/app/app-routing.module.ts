@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'achievement-details',
+    loadChildren: () => import('./achievement-details/achievement-details.module').then( m => m.AchievementDetailsPageModule)
+  },
 ];
 
 @NgModule({

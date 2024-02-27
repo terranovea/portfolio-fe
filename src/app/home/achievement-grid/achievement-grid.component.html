@@ -1,6 +1,3 @@
-<p>
-  achievement-grid works!
-  Die Kirche ist alt!
-</p>
-
-<app-achievement-card></app-achievement-card>
+<div class="main-grid">
+  <app-achievement-card *ngFor="let achiev of achievList" [achiev]="achiev"></app-achievement-card>
+</div>
