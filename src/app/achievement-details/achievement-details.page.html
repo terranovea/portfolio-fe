@@ -1,13 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>achievement-details</ion-title>
+    <ion-title>{{achiev?.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{achiev.title}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="flex-container">
+    <div class="achiev-article">
+      <div class="gallery-placeholder">
+        <ion-img [src]="achiev?.imgUrl"></ion-img>
+      </div>
+      <div>
+        <ion-title>{{achiev?.title}}</ion-title>
+        <ion-text>
+          <small>{{achiev?.startDate?.toLocaleDateString()}} - {{achiev?.endDate?.toLocaleDateString()}}</small><br>
+          {{achiev?.desc}}
+        </ion-text>
+      </div>
+    </div>
+  </div>
 </ion-content>

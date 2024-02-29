@@ -1,30 +1,33 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Achievement } from 'src/models/achievement';
+import { ActivatedRoute } from '@angular/router';
+import { DBService } from 'src/services/dbService';
 
 @Component({
   selector: 'app-achievement-details',
   templateUrl: './achievement-details.page.html',
   styleUrls: ['./achievement-details.page.scss'],
+  providers: [DBService]
 })
 export class AchievementDetailsPage implements OnInit {
-  @Input() achiev:Achievement;
+  @Input() achiev:Achievement|null;
 
-  achievTest=new Achievement(
-    "A0000",
-    "Digital Story Explorer",
-    "Entschuldigugn, wo ist das Museum? Reicht oder Links? Ist das Museum da druben? Karl, wo bist du?",
-    "achievement",
-    "../../../../assets/img/0.jpg",
-    new Date("09-01-2021"),
-    new Date("05-14-2022")
-    )
+  
+  achievID:any;
 
-  constructor()
+  constructor(private activatedRoute:ActivatedRoute, private dbService:DBService)
   {
-    this.achiev=this.achievTest;
+    this.achiev=null;
   }
 
   ngOnInit() {
+    this.activatedRoute.paramMap.subscribe(paramMap=>
+      {
+        if(paramMap.has("achievID"))
+          this.achievID=paramMap.get("achievID");
+      })
+      this.achiev=this.dbService.getAchievByID(this.achievID)
+      console.log("AchievID: "+this.achievID)
   }
 
 }

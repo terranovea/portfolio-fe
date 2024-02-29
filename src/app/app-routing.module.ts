@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'achievement-details',
+    path: ':achievID',
     loadChildren: () => import('./achievement-details/achievement-details.module').then( m => m.AchievementDetailsPageModule)
   },
 ];
