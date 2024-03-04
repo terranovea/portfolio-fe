@@ -7,7 +7,7 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { AchievementGridComponent } from './achievement-grid/achievement-grid.component';
 import { AchievementCardComponent } from './achievement-grid/achievement-card/achievement-card.component';
-
+import { LinkbarComponent } from '../linkbar/linkbar.component';
 
 @NgModule({
   imports: [
@@ -16,6 +16,6 @@ import { AchievementCardComponent } from './achievement-grid/achievement-card/ac
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage,AchievementGridComponent,AchievementCardComponent]
+  declarations: [HomePage,AchievementGridComponent,AchievementCardComponent, LinkbarComponent]
 })
 export class HomePageModule {}

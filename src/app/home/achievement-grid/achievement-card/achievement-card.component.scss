@@ -1,5 +1,5 @@
 ion-card{
-    width:12rem;
+    width:14rem;
     --max-content-lines:4;
     --max-title-lines:2;
     --line-height: 1.5; //default for card content: 1.5
@@ -9,7 +9,7 @@ ion-card{
 
 ion-card-title{
     font-size:1em;
-    font-weight: 600;
+    font-weight: 550;
     line-height:var(--line-height);
 
     display:-webkit-box;
