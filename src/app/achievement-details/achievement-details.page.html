@@ -15,15 +15,10 @@
       <div class="gallery-placeholder">
         <ion-img [src]="achiev?.imgUrl"></ion-img>
       </div>
-      
       <div>
-        <ion-title class="big"><div class="ion-text-wrap">{{achiev?.title}}</div></ion-title>
-        <ion-text class="date">
-          {{achiev?.startDate?.toLocaleDateString()}} - {{achiev?.endDate?.toLocaleDateString()}}
-        </ion-text>
-
-        <br>
+        <ion-title>{{achiev?.title}}</ion-title>
         <ion-text>
+          <small>{{achiev?.startDate?.toLocaleDateString()}} - {{achiev?.endDate?.toLocaleDateString()}}</small><br>
           {{achiev?.desc}}
         </ion-text>
       </div>

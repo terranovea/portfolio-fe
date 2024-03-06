@@ -7,8 +7,6 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { AchievementGridComponent } from './achievement-grid/achievement-grid.component';
 import { AchievementCardComponent } from './achievement-grid/achievement-card/achievement-card.component';
-import { LinkbarComponent } from '../linkbar/linkbar.component';
-import { AppModule } from '../app.module';
 import { LinkbarModule } from '../linkbar/linkbar.module';
 
 @NgModule({

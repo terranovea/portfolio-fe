@@ -25,30 +25,3 @@
 #container a {
   text-decoration: none;
 }
-
-.flex-container
-{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  gap:2em;
-  margin:2em;
-  flex-wrap:wrap;
-}
-
-.about-me
-{
-  width:24em;
-  //overflow:wrap;
-}
-
-
-
-
-.pfp
-{
-  min-width:12em;
-  width:24em;
-  border-radius:1em;
-  overflow: hidden;
-}

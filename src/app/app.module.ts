@@ -7,14 +7,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { AchievementGridComponent } from './home/achievement-grid/achievement-grid.component';
-import { AchievementCardComponent } from './home/achievement-grid/achievement-card/achievement-card.component';
-import { LinkbarComponent } from './linkbar/linkbar.component';
-import { LinkbarModule } from './linkbar/linkbar.module';
-import { AchieverDetailsPipe } from './achiever-details.pipe';
-
 @NgModule({
-  declarations: [AppComponent, AchieverDetailsPipe],
+  declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
