@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { AchievementDetailsPageRoutingModule } from './achievement-details-routing.module';
 
 import { AchievementDetailsPage } from './achievement-details.page';
-import { LinkbarComponent } from '../linkbar/linkbar.component';
 import { LinkbarModule } from '../linkbar/linkbar.module';
 
 @NgModule({
