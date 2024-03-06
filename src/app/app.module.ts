@@ -10,9 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AchievementGridComponent } from './home/achievement-grid/achievement-grid.component';
 import { AchievementCardComponent } from './home/achievement-grid/achievement-card/achievement-card.component';
 import { LinkbarComponent } from './linkbar/linkbar.component';
+import { LinkbarModule } from './linkbar/linkbar.module';
+import { AchieverDetailsPipe } from './achiever-details.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AchieverDetailsPipe],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

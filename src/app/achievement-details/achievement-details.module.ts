@@ -8,13 +8,15 @@ import { AchievementDetailsPageRoutingModule } from './achievement-details-routi
 
 import { AchievementDetailsPage } from './achievement-details.page';
 import { LinkbarComponent } from '../linkbar/linkbar.component';
+import { LinkbarModule } from '../linkbar/linkbar.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AchievementDetailsPageRoutingModule
+    AchievementDetailsPageRoutingModule,
+    LinkbarModule
   ],
   declarations: [AchievementDetailsPage]
 })

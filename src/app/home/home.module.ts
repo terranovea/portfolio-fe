@@ -8,14 +8,17 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { AchievementGridComponent } from './achievement-grid/achievement-grid.component';
 import { AchievementCardComponent } from './achievement-grid/achievement-card/achievement-card.component';
 import { LinkbarComponent } from '../linkbar/linkbar.component';
+import { AppModule } from '../app.module';
+import { LinkbarModule } from '../linkbar/linkbar.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    LinkbarModule
   ],
-  declarations: [HomePage,AchievementGridComponent,AchievementCardComponent, LinkbarComponent]
+  declarations: [HomePage,AchievementGridComponent,AchievementCardComponent]
 })
 export class HomePageModule {}
