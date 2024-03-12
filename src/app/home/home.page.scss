@@ -38,7 +38,7 @@
 
 .about-me
 {
-  width:24em;
+  width:var(--article-content-width);
   //overflow:wrap;
 }
 
@@ -48,7 +48,7 @@
 .pfp
 {
   min-width:12em;
-  width:24em;
+  width:var(--article-content-width);
   border-radius:1em;
   overflow: hidden;
 }

@@ -13,8 +13,8 @@ export class AchievementCardComponent  implements OnInit {
   
   achievTest=new Achievement(
     "A0000",
-    "Digital Story Explorer",
-    "Entschuldigugn, wo ist das Museum? Reicht oder Links? Ist das Museum da druben? Karl, wo bist du?",
+    "Test",
+    "Ciao sono Josh",
     "achievement",
     "../../../../assets/img/0.jpg",
     new Date("09-01-2021"),

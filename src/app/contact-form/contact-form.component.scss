@@ -1,0 +1,39 @@
+.main-container
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:1em;
+}
+
+ion-card
+{
+    max-width:var(--article-content-width);
+}
+
+ion-textarea
+{
+    height:8em;
+}
+
+.comp-tel-field
+{
+    display:flex;
+    align-items: center;
+    justify-content: top;
+    gap:1em;
+}
+
+.prefix-field
+{
+    width:2em;
+}
+.prefix-field
+{
+    width:2em;
+}
+
+.tel-field
+{
+    width:11em;
+}

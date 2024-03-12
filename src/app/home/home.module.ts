@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { AchievementGridComponent } from './achievement-grid/achievement-grid.component';
 import { AchievementCardComponent } from './achievement-grid/achievement-card/achievement-card.component';
 import { LinkbarModule } from '../linkbar/linkbar.module';
+import { ContactFormModule } from '../contact-form/contact-form.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { LinkbarModule } from '../linkbar/linkbar.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    LinkbarModule
+    LinkbarModule,
+    ContactFormModule
   ],
   declarations: [HomePage,AchievementGridComponent,AchievementCardComponent]
 })
