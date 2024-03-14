@@ -1,32 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Achievements
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Achievements</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div class="flex-container">
-    <div class="pfp">
-      <ion-img src="../../../../assets/img/Katze.jpg"></ion-img>
-    </div>
-    <div class="about-me">
-      <ion-title class="big">Wer bin ich?</ion-title>
-      <ion-text class="about-me-text">
-        Hallo! Ich heiße Joshua Terranova und ich bin eine Katze. Ich bin sehr süß unt schön!
-        Ich mache viele Dinge! Lesen Sie weiter unten!
-      </ion-text>
+  <div class="about-me-parent-container">
+    <div class="about-me-center-container">
+      <div class="pfp">
+        <ion-img src="../../../../assets/img/Katze.jpg" alt="Es ist eine Katze"></ion-img>
+      </div>
+      <div class="about-me">
+        <ion-title class="big">Wer bin ich?</ion-title>
+        <ion-text class="about-me-text">
+          Hallo! Ich heiße Joshua Terranova und ich bin eine Katze. Ich bin sehr süß und schön!
+          Ich mache viele Dinge! Lesen Sie weiter unten!
+        </ion-text>
+      </div>
     </div>
   </div>
-
-  <div >
+  <div>
     <ion-title class="big">My Achievements</ion-title>
   </div>
   <app-achievement-grid></app-achievement-grid>

@@ -3,17 +3,19 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    padding:1em;
+    padding:2em;
 }
 
 ion-card
 {
+    margin:0;
+    width:100%;
     max-width:var(--article-content-width);
 }
 
 ion-textarea
 {
-    height:8em;
+    //height:8em;
 }
 
 .comp-tel-field
@@ -21,19 +23,35 @@ ion-textarea
     display:flex;
     align-items: center;
     justify-content: top;
-    gap:1em;
+    gap:0.5em;
 }
 
-.prefix-field
+.prefix-field-plus
 {
-    width:2em;
+    display:flex;
+    align-items: center;
+    justify-content: top;
 }
 .prefix-field
 {
-    width:2em;
+    width:1.75em;
 }
 
 .tel-field
 {
-    width:11em;
+    max-width:11em;
+}
+
+.field-title
+{
+    display:flex;
+    align-items:center;
+    justify-content: end;
+    color:var(--ion-color-dark);
+    font-weight:550;
+}
+
+ion-button
+{
+    float:right;
 }

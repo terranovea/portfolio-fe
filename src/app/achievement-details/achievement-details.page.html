@@ -19,7 +19,7 @@
       <div>
         <ion-title class="big"><div class="ion-text-wrap">{{achiev?.title}}</div></ion-title>
         <ion-text class="date">
-          {{achiev?.startDate?.toLocaleDateString()}} - {{achiev?.endDate?.toLocaleDateString()}}
+          {{achiev?.startDate | date:"mediumDate"}} - {{achiev?.endDate | date:"mediumDate"}}
         </ion-text>
 
         <br>
@@ -29,6 +29,7 @@
       </div>
     </div>
   </div>
+
 </ion-content>
 
 

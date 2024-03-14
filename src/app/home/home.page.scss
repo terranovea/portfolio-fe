@@ -26,29 +26,44 @@
   text-decoration: none;
 }
 
-.flex-container
+.about-me-parent-container
 {
   display:flex;
   justify-content: center;
   align-items: center;
-  gap:2em;
+  flex-wrap:wrap;
+  height:100vh;
+}
+
+.about-me-center-container
+{
+  --gap:2em;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap:var(--gap);
   margin:2em;
   flex-wrap:wrap;
+  width:var(--article-content-width);
 }
 
 .about-me
 {
-  width:var(--article-content-width);
+  max-width:calc(var(--article-content-width)/2 - var(--gap)/2);
+
   //overflow:wrap;
 }
 
-
-
+.about-me-text
+{
+  display:block;
+  text-align: justify;
+}
 
 .pfp
 {
   min-width:12em;
-  width:var(--article-content-width);
+  max-width:calc(var(--article-content-width)/2 - var(--gap)/2);
   border-radius:1em;
   overflow: hidden;
 }

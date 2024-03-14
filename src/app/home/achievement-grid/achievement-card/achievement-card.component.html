@@ -2,13 +2,13 @@
   <ion-img alt="img not found?" [src]="achiev.imgUrl"></ion-img>
   <ion-card-header>
     <ion-card-title>{{achiev.title}}</ion-card-title>
-    <ion-card-subtitle><small>{{achiev.startDate.getFullYear()}} - {{achiev.endDate.getFullYear()}}</small></ion-card-subtitle>
+    <ion-card-subtitle><small>{{achiev.startDate | date:"y"}} - {{achiev.endDate | date:"y"}}</small></ion-card-subtitle>
   </ion-card-header>
   <ion-card-content class="cutoff-text">
     {{achiev.desc}}
     <div class="desc-fade-gradient"></div>
   </ion-card-content>
   <div class="read-more-btn">
-    <ion-button fill="clear">Read more</ion-button>
+    <ion-button fill="clear" color="tertiary">Read more</ion-button>
   </div>
 </ion-card>

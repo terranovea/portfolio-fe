@@ -41,9 +41,16 @@ ion-title{
   text-align:center;
 }
 
+ion-card
+{
+  border-radius:1em;
+}
+
 .big
 {
   font-size:clamp(2em,4vw,3em);
+  font-weight: 700;
+  color:var(--ion-color-primary)
 }
 
 .hvr-grow {
