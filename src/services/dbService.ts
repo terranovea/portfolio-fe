@@ -16,7 +16,10 @@ export class DBService
         "page-url":"A0000",
         "img-url":"../../../../assets/img/0.jpg",
         "start-date":"09-01-2021",
-        "end-date":"05-14-2022"
+        "end-date":"05-14-2022",
+        "tags":
+            ["Arduino","Tin Soldering","Kuka Robot","KRL","Python","Grasshopper","Rhinoceros","Scripting","Circuit Design"],
+        "employer-id":"E0000"
         },
         {
         "id":"A0001",
@@ -25,7 +28,10 @@ export class DBService
         "page-url":"A0001",
         "img-url":"../../../../assets/img/0.jpg",
         "start-date":"09-01-2021",
-        "end-date":"05-14-2022"
+        "end-date":"05-14-2022",
+        "tags":
+            ["Arduino","Actionscript","Flash","Tin Soldering","Circuit Design"],
+        "emplyer-id":"E0000"
         },
         {
         "id":"A0002",
@@ -34,7 +40,10 @@ export class DBService
         "page-url":"A0002",
         "img-url":"../../../../assets/img/0.jpg",
         "start-date":"09-01-2021",
-        "end-date":"05-14-2022"
+        "end-date":"05-14-2022",
+        "tags":
+            ["Python","Grasshopper","Scripting"],
+        "employer-id":"E0000"
         },
         {
         "id":"A0003",
@@ -43,7 +52,10 @@ export class DBService
         "page-url":"A0003",
         "img-url":"../../../../assets/img/0.jpg",
         "start-date":"05-08-2021",
-        "end-date":"05-02-2023"
+        "end-date":"05-02-2023",
+        "tags":
+            ["FortiGate","FortiNet","Kali","Penetration Testing","Network Operations"],
+        "emplyer-id":"E0001"
         },
         {
         "id":"A0004",
@@ -52,7 +64,10 @@ export class DBService
         "page-url":"A0004",
         "img-url":"../../../../assets/img/0.jpg",
         "start-date":"05-02-2023",
-        "end-date":"05-02-2023"
+        "end-date":"05-02-2023",
+        "tags":
+            ["Typescript","Javascript","Node.js","Angular","Ionic","mySQL","wordpress"],
+        "emplyer-id":"E0001"
         }
     ]
     constructor()
@@ -75,7 +90,9 @@ export class DBService
                 tempAchiev["page-url"],
                 tempAchiev["img-url"],
                 new Date(tempAchiev["start-date"]),
-                new Date(tempAchiev["end-date"])
+                new Date(tempAchiev["end-date"]),
+                tempAchiev["tags"],
+                tempAchiev["employer-id"]
             ));
         }
         this.cachedAchievBatch=achievArray;

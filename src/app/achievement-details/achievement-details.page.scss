@@ -3,14 +3,20 @@
     width:100%;
     display:flex;
     justify-content: center;
+    flex-wrap:wrap;
 }
 .achiev-article
 {
     background-color:var(--ion-card-background);
     width:100%;
     height:100%;
-    max-width:var(--article-content-width);
+    max-width:calc(var(--article-content-width)/5*4);
     padding:2em;
+}
+
+app-contact-form
+{
+    width:calc(var(--article-content-width)/2);
 }
 
 .gallery-placeholder
@@ -18,6 +24,7 @@
     //background-color: salmon;
     //height:12em;
     //width: 12em;
+    margin:1em;
     border-radius: 1em;
     overflow:hidden;
 }
@@ -30,4 +37,10 @@
     text-align:center;
     color: var(--ion-color-medium);
     width:100%;
+}
+
+.tag-list
+{
+    display:flex;
+    flex-wrap:wrap;
 }

@@ -8,6 +8,8 @@ import { AchievementDetailsPageRoutingModule } from './achievement-details-routi
 
 import { AchievementDetailsPage } from './achievement-details.page';
 import { LinkbarModule } from '../linkbar/linkbar.module';
+import { ContactFormModule } from '../contact-form/contact-form.module';
+import { TagModule } from '../tag/tag.module';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { LinkbarModule } from '../linkbar/linkbar.module';
     FormsModule,
     IonicModule,
     AchievementDetailsPageRoutingModule,
-    LinkbarModule
+    LinkbarModule,
+    ContactFormModule,
+    TagModule
   ],
   declarations: [AchievementDetailsPage]
 })

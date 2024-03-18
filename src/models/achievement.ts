@@ -4,10 +4,13 @@ export class Achievement
     title:string;
     desc:string;
     pageUrl:string;
-    imgUrl = '../../../../assets/img/0.jpg';
+    imgUrl:string = '../../../../assets/img/0.jpg';
     startDate:Date;
-    endDate:Date;
-    constructor(id:string,title:string,desc:string,pageUrl:string,imgUrl:string,startDate:Date,endDate:Date)
+    endDate:Date|null;
+    tags:string[]=[];
+    employerID:string|null=null;
+    constructor(id:string,title:string,desc:string,pageUrl:string,imgUrl:string,startDate:Date,endDate:Date|null, 
+        tags:string[], employerID:string|null)
     { 
         this.id=id;
         this.title=title;
@@ -16,5 +19,7 @@ export class Achievement
         this.imgUrl=imgUrl;
         this.startDate=startDate;
         this.endDate=endDate;
+        this.tags=tags;
+        this.employerID=employerID;
     }
 }

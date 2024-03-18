@@ -30,6 +30,7 @@
 //big global variable
 * {
   --article-content-width:48em;
+  --big-title-size:clamp(2em,4vw,3em);
 }
 
 ion-button{
@@ -48,7 +49,7 @@ ion-card
 
 .big
 {
-  font-size:clamp(2em,4vw,3em);
+  font-size:var(--big-title-size);
   font-weight: 700;
   color:var(--ion-color-primary)
 }

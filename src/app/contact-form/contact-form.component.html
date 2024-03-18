@@ -4,7 +4,8 @@
       <div class="inline-input-container">
         <ion-grid>
           <ion-row>
-            <ion-title class="big">Let's get in touch!</ion-title>
+            <ion-title class="big" *ngIf="bigTitle"><div class="ion-text-wrap">Let's get in touch!</div></ion-title>
+            <ion-title class="not-so-big"*ngIf="!bigTitle"><div class="ion-text-wrap">Let's get in touch!</div></ion-title>
           </ion-row>
           <ion-row>
             <ion-col size="3" class="field-title">

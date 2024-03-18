@@ -1,3 +1,8 @@
+*
+{
+    --contact-title-size:var(--big-title-size);
+}
+
 .main-container
 {
     display:flex;
@@ -13,9 +18,11 @@ ion-card
     max-width:var(--article-content-width);
 }
 
-ion-textarea
+.not-so-big
 {
-    //height:8em;
+    font-size:1.5em;
+    font-weight: 700;
+    color:var(--ion-color-primary)
 }
 
 .comp-tel-field
@@ -35,11 +42,6 @@ ion-textarea
 .prefix-field
 {
     width:1.75em;
-}
-
-.tel-field
-{
-    max-width:11em;
 }
 
 .field-title
