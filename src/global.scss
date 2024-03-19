@@ -31,6 +31,7 @@
 * {
   --article-content-width:48em;
   --big-title-size:clamp(2em,4vw,3em);
+  --ion-color-medium-transparent: rgba(var(--ion-color-medium-rgb), 0.5);
 }
 
 ion-button{

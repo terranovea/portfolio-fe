@@ -5,10 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { AchievementGridComponent } from './achievement-grid/achievement-grid.component';
-import { AchievementCardComponent } from './achievement-grid/achievement-card/achievement-card.component';
-import { LinkbarModule } from '../linkbar/linkbar.module';
-import { ContactFormModule } from '../contact-form/contact-form.module';
+import { AchievementGridModule } from '../../components/achievement-grid/achievement-grid.module';
+import { LinkbarModule } from 'src/app/components/linkbar/linkbar.module';
+import { ContactFormModule } from 'src/app/components/contact-form/contact-form.module';
 
 @NgModule({
   imports: [
@@ -17,8 +16,9 @@ import { ContactFormModule } from '../contact-form/contact-form.module';
     IonicModule,
     HomePageRoutingModule,
     LinkbarModule,
-    ContactFormModule
+    ContactFormModule,
+    AchievementGridModule
   ],
-  declarations: [HomePage,AchievementGridComponent,AchievementCardComponent]
+  declarations: [HomePage]
 })
 export class HomePageModule {}

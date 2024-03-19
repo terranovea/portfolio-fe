@@ -7,9 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { AchievementDetailsPageRoutingModule } from './achievement-details-routing.module';
 
 import { AchievementDetailsPage } from './achievement-details.page';
-import { LinkbarModule } from '../linkbar/linkbar.module';
-import { ContactFormModule } from '../contact-form/contact-form.module';
-import { TagModule } from '../tag/tag.module';
+import { LinkbarModule } from 'src/app/components/linkbar/linkbar.module';
+import { ContactFormModule } from 'src/app/components/contact-form/contact-form.module';
+import { TagModule } from 'src/app/components/tag/tag.module';
 
 @NgModule({
   imports: [
