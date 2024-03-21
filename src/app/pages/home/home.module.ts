@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { AchievementGridModule } from '../../components/achievement-grid/achievement-grid.module';
 import { LinkbarModule } from 'src/app/components/linkbar/linkbar.module';
 import { ContactFormModule } from 'src/app/components/contact-form/contact-form.module';
+import { NavbarModule } from 'src/app/components/navbar/navbar.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { ContactFormModule } from 'src/app/components/contact-form/contact-form.
     HomePageRoutingModule,
     LinkbarModule,
     ContactFormModule,
-    AchievementGridModule
+    AchievementGridModule,
+    NavbarModule
   ],
   declarations: [HomePage]
 })

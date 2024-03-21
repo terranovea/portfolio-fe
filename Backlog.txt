@@ -1,0 +1,17 @@
+Web Design:
+- Create Achievement Search page
+    to search for achievements by title, employer or by TAGS!
+- Create an Achiever page
+    to display details about a person with achievements
+- Create employer component
+    to display next to every achievement that has an employer
+- Create an arrow component for the splash screen
+    to lightly incentivise a user to scroll down
+
+Optimisations:
+- Fix RouterLink on components
+- Redesign Data query structure (store achievment list in session data maybe)
+
+Styles:
+- Fix those f***ing colours goddamnit! They're hideous! XD
+

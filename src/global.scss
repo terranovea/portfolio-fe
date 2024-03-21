@@ -30,7 +30,7 @@
 //big global variable
 * {
   --article-content-width:48em;
-  --big-title-size:clamp(2em,4vw,3em);
+  --big-title-size:2em;
   --ion-color-medium-transparent: rgba(var(--ion-color-medium-rgb), 0.5);
 }
 
@@ -41,6 +41,8 @@ ion-button{
 ion-title{
   white-space: normal!important;
   text-align:center;
+  position:relative; //solves position bug on ios
+  padding:0; //solves problem on ios
 }
 
 ion-card
@@ -52,7 +54,7 @@ ion-card
 {
   font-size:var(--big-title-size);
   font-weight: 700;
-  color:var(--ion-color-primary)
+  color:var(--ion-color-primary);
 }
 
 .hvr-grow {

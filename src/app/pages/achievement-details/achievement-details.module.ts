@@ -10,6 +10,7 @@ import { AchievementDetailsPage } from './achievement-details.page';
 import { LinkbarModule } from 'src/app/components/linkbar/linkbar.module';
 import { ContactFormModule } from 'src/app/components/contact-form/contact-form.module';
 import { TagModule } from 'src/app/components/tag/tag.module';
+import { NavbarModule } from 'src/app/components/navbar/navbar.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { TagModule } from 'src/app/components/tag/tag.module';
     AchievementDetailsPageRoutingModule,
     LinkbarModule,
     ContactFormModule,
-    TagModule
+    TagModule,
+    NavbarModule
   ],
   declarations: [AchievementDetailsPage]
 })

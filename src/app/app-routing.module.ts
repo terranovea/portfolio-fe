@@ -12,6 +12,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'achievement-search',
+    loadChildren: () => import('./pages/achievement-search/achievement-search.module').then( m => m.AchievementSearchPageModule)
+  },
+  {
     path: ':achievID',
     loadChildren: () => import('./pages/achievement-details/achievement-details.module').then( m => m.AchievementDetailsPageModule)
   },
