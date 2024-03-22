@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DBService } from 'src/services/dbService';
 import { Achievement } from 'src/models/achievement';
 
@@ -9,11 +9,11 @@ import { Achievement } from 'src/models/achievement';
   providers:[DBService],
 })
 export class AchievementGridComponent  implements OnInit {
-
-  achievList:Achievement[]=[];
+  @Input() achievList:Achievement[]=[];
 
   constructor(private dbService:DBService) {
-    this.achievList=dbService.getAchievList();
+    if(this.achievList.length==0)
+      this.achievList=dbService.getAchievList();
   }
 
   ngOnInit() {}

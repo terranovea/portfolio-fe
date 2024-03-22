@@ -3,10 +3,10 @@
 
   <ion-searchbar></ion-searchbar>
 
-  <div>
-    <app-tag tagName="test"></app-tag>
+  <div class="tag-list">
+    <app-tag [selectable]="true" *ngFor="let tag of allTags" [tagName]="tag" (tagToggled)="onToggleTag(tag)"></app-tag>
   </div>
 
-  <app-achievement-grid></app-achievement-grid>
+  <app-achievement-grid [achievList]="filteredAchiev" ></app-achievement-grid>
 
 </ion-content>

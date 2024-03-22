@@ -1,3 +1,11 @@
-<div>
+<div *ngIf="selectable && selected" class="selected hvr-fade-tertiary" (click)="onToggleSelf()">
+  {{tagName}}
+</div>
+
+<div *ngIf="selectable && !(selected)" class="hvr-fade-tertiary" (click)="onToggleSelf()">
+  {{tagName}}
+</div>
+
+<div *ngIf="!selectable">
   {{tagName}}
 </div>

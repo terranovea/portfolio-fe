@@ -5,5 +5,9 @@ div
     width:fit-content;
     background-color: var(--ion-color-medium-transparent);
     border-radius: 0.25em;
+}
 
+.selected
+{
+    background-color:var(--ion-color-medium);
 }

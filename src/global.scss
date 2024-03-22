@@ -72,3 +72,20 @@ ion-card
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+.hvr-fade-tertiary {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+.hvr-fade-tertiary:hover, .hvr-fade-tertiary:focus, .hvr-fade-tertiary:active {
+  background-color: var(--ion-color-tertiary)!important;
+  color: white;
+}
