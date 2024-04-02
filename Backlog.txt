@@ -1,6 +1,8 @@
 Web Design:
-- Create Achievement Search page
+- Create Achievement Search page (MERAVIGLIA) 💚
     to search for achievements by title, employer or by TAGS!
+    - Add a modal for tag selection (TOP) 💚
+    - Implement search by title and description (FAVOLA) 💚
 - Create an Achiever page
     to display details about a person with achievements
 - Create employer component

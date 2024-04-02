@@ -57,6 +57,16 @@ ion-card
   color:var(--ion-color-primary);
 }
 
+.flex-container
+{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+
+
+//Animations
 .hvr-grow {
   display: inline-block;
   vertical-align: middle;

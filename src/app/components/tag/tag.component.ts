@@ -9,8 +9,8 @@ export class TagComponent  implements OnInit {
 
   @Input() tagName:string="";
   @Input() selectable:boolean=false;
+  @Input() selected:boolean=false;
   @Output() tagToggled=new EventEmitter<string>()
-  selected:boolean=false;
 
   constructor() {}
 

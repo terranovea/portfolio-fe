@@ -4,3 +4,17 @@
     flex-wrap:wrap;
     justify-content:center;
 }
+
+.filter-card
+{
+    background-color:var(--ion-card-background);
+    width:100%;
+    height:100%;
+    max-width:calc(var(--article-content-width)/5*4);
+    padding:2em;
+}
+
+ng-template
+{
+    height:min-content;
+}

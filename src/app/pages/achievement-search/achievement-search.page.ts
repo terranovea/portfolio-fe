@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonModal } from '@ionic/angular';
 import { Achievement } from 'src/models/achievement';
 import { DBService } from 'src/services/dbService';
 
@@ -8,11 +9,15 @@ import { DBService } from 'src/services/dbService';
   styleUrls: ['./achievement-search.page.scss'],
   providers:[DBService],
 })
-export class AchievementSearchPage implements OnInit {
+export class AchievementSearchPage implements OnInit 
+{
+  @ViewChild(IonModal) tagModal:any;
+
   allTags:string[];
   selectedTags:string[];
   allAchiev:Achievement[];
   filteredAchiev:Achievement[];
+  searchString:string="";
   
   constructor(private dbService:DBService) {
     this.allAchiev=dbService.getAchievList()
@@ -37,11 +42,23 @@ export class AchievementSearchPage implements OnInit {
       this.selectedTags.splice(this.selectedTags.indexOf(tagName),1);
     else
       this.selectedTags.push(tagName);
-    this.filterAchievements()
+    this.filterAchievements();
     console.log(`Selected tags:${this.selectedTags}`)
   }
 
+  onSearchChange(searchString:string)
+  {
+    this.searchString=searchString;
+    this.filterAchievements();
+  }
+
   filterAchievements()
+  {
+    this.filterAchievByTags()
+    this.filterAchievByString()
+  }
+
+  filterAchievByTags()
   {
     if(this.selectedTags.length==0)
       this.filteredAchiev=this.allAchiev;
@@ -59,6 +76,26 @@ export class AchievementSearchPage implements OnInit {
           this.filteredAchiev.push(achiev);
       }
     }
+  }
+  filterAchievByString()
+  {
+    console.log(this.searchString)
+    var startingAchiev:Achievement[]=this.filteredAchiev;
+    var endingAchiev:Achievement[]=[];
+    for(var i=0;i<startingAchiev.length;i++)
+    {
+        var achiev=startingAchiev[i];
+        if(achiev.title.toLowerCase().includes(this.searchString.toLowerCase())
+          || achiev.desc.toLowerCase().includes(this.searchString.toLowerCase()))
+          endingAchiev.push(achiev);
+    }
+    console.log(endingAchiev);
+    this.filteredAchiev=endingAchiev;
+  }
+
+  closeModal()
+  {
+    this.tagModal.dismiss()
   }
 
   ngOnInit() {
