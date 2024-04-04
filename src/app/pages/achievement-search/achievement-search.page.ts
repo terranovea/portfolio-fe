@@ -18,9 +18,10 @@ export class AchievementSearchPage implements OnInit
   allAchiev:Achievement[];
   filteredAchiev:Achievement[];
   searchString:string="";
+  achieverID:string="R0000"
   
   constructor(private dbService:DBService) {
-    this.allAchiev=dbService.getAchievList()
+    this.allAchiev=dbService.getUserAchievements(this.achieverID)
     this.filteredAchiev=[]
     this.allTags=[];
     this.selectedTags=[];

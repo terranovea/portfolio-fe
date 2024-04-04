@@ -5,6 +5,8 @@ Web Design:
     - Implement search by title and description (FAVOLA) 💚
 - Create an Achiever page
     to display details about a person with achievements
+    - Migrate HomePage to AchieverPage
+    - Create new simple HomePage with temporary link to Josh (Achiever)
 - Create employer component
     to display next to every achievement that has an employer
 - Create an arrow component for the splash screen

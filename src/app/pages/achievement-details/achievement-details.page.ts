@@ -28,6 +28,8 @@ export class AchievementDetailsPage implements OnInit {
       })
       this.achiev=this.dbService.getAchievByID(this.achievID)
       console.log("AchievID: "+this.achievID)
+      console.log("Achiev test:")
+      console.log(this.dbService.getAchievByID(this.achievID))
   }
 
 }

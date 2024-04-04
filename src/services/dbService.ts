@@ -5,12 +5,28 @@ Right now it only reads local json files for development purposes.
 
 import { Achievement } from "src/models/achievement";
 
+type DBAchievRecord=
+{
+    "id":string;
+    "achiever-ids":string[];
+    "title":string;
+    "desc":string;
+    "page-url":string;
+    "img-url":string;
+    "start-date":string;
+    "end-date":string;
+    "tags":string[];
+    "employer-id":string;
+}
+
 export class DBService
 {
     cachedAchievBatch:Achievement[]|null;
-    achievBatchDBRes:any=[
+    achievBatchDB:DBAchievRecord[]=
+    [
         {
         "id":"A0000",
+        "achiever-ids":["R0000"],
         "title":"Robotic Collaboration Gripper",
         "desc":"Entschuldigugn, wo ist das Museum? Rechts oder Links? Ist das Museum da druben? Karl, wo bist du?",
         "page-url":"A0000",
@@ -23,6 +39,7 @@ export class DBService
         },
         {
         "id":"A0001",
+        "achiever-ids":["R0000"],
         "title":"Digital Story Explorer",
         "desc":"Hallo, wie ist es in Berlin? Ist das Wetter gut?",
         "page-url":"A0001",
@@ -31,10 +48,11 @@ export class DBService
         "end-date":"05-14-2022",
         "tags":
             ["Arduino","Actionscript","Flash","Tin Soldering","Circuit Design"],
-        "emplyer-id":"E0000"
+        "employer-id":"E0000"
         },
         {
         "id":"A0002",
+        "achiever-ids":["R0000"],
         "title":"Python Plugins for Grasshopper",
         "desc":"Wie heißen Sie? Ich heiße Joshua Terranova und ich spiele sehr gut Klavier. Ich auch spiele oft guitarre",
         "page-url":"A0002",
@@ -47,6 +65,7 @@ export class DBService
         },
         {
         "id":"A0003",
+        "achiever-ids":["R0001"],
         "title":"SOC Operator at Dauvea",
         "desc":"Ich Fruhstecke jeden morgen. Ich Trinke Milch gern, aber ich LIEBE deutsch. Ich spreche deutsch gern",
         "page-url":"A0003",
@@ -55,10 +74,11 @@ export class DBService
         "end-date":"05-02-2023",
         "tags":
             ["FortiGate","FortiNet","Kali","Penetration Testing","Network Operations"],
-        "emplyer-id":"E0001"
+        "employer-id":"E0001"
         },
         {
         "id":"A0004",
+        "achiever-ids":["R0001"],
         "title":"Software Developer at Dauvea",
         "desc":"Das Wetter ist nicht sehr gut heute. Es ist schlecht! Es ist bewolkt jeden Tag.",
         "page-url":"A0004",
@@ -67,7 +87,7 @@ export class DBService
         "end-date":"05-02-2023",
         "tags":
             ["Typescript","Javascript","Node.js","Angular","Ionic","mySQL","wordpress"],
-        "emplyer-id":"E0001"
+        "employer-id":"E0001"
         }
     ]
     constructor()
@@ -75,16 +95,58 @@ export class DBService
         this.cachedAchievBatch=null;
     }
 
-    queryDBAchievBatch():Achievement[]
+    parseAchievFromDB(dbAchiev:DBAchievRecord)
     {
-        var achievArray:Achievement[]=[];
-        var tempAchiev:any;
-        console.log("Db queried. Res: \n"+JSON.stringify(this.achievBatchDBRes))
-        for(var i=0; i<this.achievBatchDBRes.length;i++)
+        let tsAchiev:Achievement = new Achievement(
+            dbAchiev["id"],
+            dbAchiev["achiever-ids"],
+            dbAchiev["title"],
+            dbAchiev["desc"],
+            dbAchiev["page-url"],
+            dbAchiev["img-url"],
+            new Date(dbAchiev["start-date"]),
+            new Date(dbAchiev["end-date"]),
+            dbAchiev["tags"],
+            dbAchiev["employer-id"]
+        );
+        return tsAchiev
+    }
+    
+    parseAchievListFromDB(dbAchiev:DBAchievRecord[])
+    {
+        var returnArray=[];
+        for(var i=0; i<dbAchiev.length;i++)
         {
-            var tempAchiev=this.achievBatchDBRes[i];
-            achievArray.push(new Achievement(
+            var tempAchiev=dbAchiev[i];
+            returnArray.push(this.parseAchievFromDB(tempAchiev));
+        }
+        return returnArray;
+    }
+    
+    getUserAchievements(achieverID:string):Achievement[]
+    {
+        var returnArray:Achievement[]=[];
+        var tempAchiev:any;
+        var dbRes:any=[];
+
+        //fake Query:
+        for(var i=0;i<this.achievBatchDB.length;i++)
+        {
+            if(this.achievBatchDB[i]["achiever-ids"].includes(achieverID))
+            {
+                dbRes.push(this.achievBatchDB[i]);
+                console.log("dbRes");
+            }
+        }
+
+        //parse db data into ts data
+        console.log("Db queried. Res: \n"+JSON.stringify(dbRes))
+        for(var i=0; i<dbRes.length;i++)
+        {
+            var tempAchiev=dbRes[i];
+            returnArray.push(new Achievement(
                 tempAchiev["id"],
+                tempAchiev["achiever-ids"],
                 tempAchiev["title"],
                 tempAchiev["desc"],
                 tempAchiev["page-url"],
@@ -95,33 +157,24 @@ export class DBService
                 tempAchiev["employer-id"]
             ));
         }
-        this.cachedAchievBatch=achievArray;
-        return achievArray;
-    }
-    
-    getAchievList(forceDBQuery:boolean=false):Achievement[]
-    {
-        if(this.cachedAchievBatch==null || forceDBQuery)
-            return this.queryDBAchievBatch();
-        else
-            return this.cachedAchievBatch;
+        console.log("dbRes");
+        console.log(dbRes);
+        console.log("returnArray");
+        console.log(returnArray);
+        
+        this.cachedAchievBatch=returnArray;
+        return returnArray;
     }
 
     getAchievByID(desiredID:string):Achievement|null
     {
-        if(this.cachedAchievBatch==null)//if cache is empty, query db and wait for res
+        //fake Query:
+        for(var i=0;i<this.achievBatchDB.length;i++)
         {
-            this.getAchievList(true);
-        }
-        if(this.cachedAchievBatch!=null)//this if is needed because typescript doesn't know the cache cannot be empty at this point
-        {
-            //search in cache for achiev with desired id. Return as soon as you find it. Otherwise, return null (outside the loop).
-            for(var i=0; i<this.cachedAchievBatch.length; i++)
+            var tempAchiev=this.achievBatchDB[i]
+            if(tempAchiev["id"]==desiredID)
             {
-                if(this.cachedAchievBatch[i].id==desiredID)
-                {
-                    return this.cachedAchievBatch[i];
-                }
+                return this.parseAchievFromDB(tempAchiev);;
             }
         }
         return null;
