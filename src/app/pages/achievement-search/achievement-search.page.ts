@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { Achievement } from 'src/models/achievement';
+import { Achiever } from 'src/models/achiever';
 import { DBService } from 'src/services/dbService';
 
 @Component({
@@ -14,21 +15,22 @@ export class AchievementSearchPage implements OnInit
 
   allTags:string[];
   selectedTags:string[];
-  allAchiev:Achievement[];
-  filteredAchiev:Achievement[];
+  allAchievements:Achievement[];
+  filteredAchievements:Achievement[];
   searchString:string="";
-  achieverID:string="R0000"
+  allAchievers:Achiever[];
   
   constructor(private dbService:DBService) {
-    this.allAchiev=this.dbService.getUserAchievements(this.achieverID)
-    this.filteredAchiev=[]
+    this.allAchievements=this.dbService.getAllAchievements();
+    this.allAchievers=this.dbService.getAllAchievers()
+    this.filteredAchievements=[]
     this.allTags=[];
     this.selectedTags=[];
-    for(let i=0; i<this.allAchiev.length;i++)
+    for(let i=0; i<this.allAchievements.length;i++)
     {
-      for(let j=0;j<this.allAchiev[i].tags.length;j++)
+      for(let j=0;j<this.allAchievements[i].tags.length;j++)
       {
-        let currentTag=this.allAchiev[i].tags[j];
+        let currentTag=this.allAchievements[i].tags[j];
         if(!(this.allTags.includes(currentTag)))
           this.allTags.push(currentTag);
       }
@@ -61,26 +63,26 @@ export class AchievementSearchPage implements OnInit
   filterAchievByTags()
   {
     if(this.selectedTags.length==0)
-      this.filteredAchiev=this.allAchiev;
+      this.filteredAchievements=this.allAchievements;
     else
     {
-      this.filteredAchiev=[];
-      for(var i=0;i<this.allAchiev.length;i++)
+      this.filteredAchievements=[];
+      for(var i=0;i<this.allAchievements.length;i++)
       {
-        let achiev=this.allAchiev[i]
+        let achiev=this.allAchievements[i]
         let nMatchingTags=0;
         for(var j=0;j<this.selectedTags.length;j++)
           if(achiev.tags.includes(this.selectedTags[j]))
             nMatchingTags++;
         if(nMatchingTags==this.selectedTags.length)//If ALL selected tags match with this achieveent, then display it
-          this.filteredAchiev.push(achiev);
+          this.filteredAchievements.push(achiev);
       }
     }
   }
   filterAchievByString()
   {
     console.log(this.searchString)
-    var startingAchiev:Achievement[]=this.filteredAchiev;
+    var startingAchiev:Achievement[]=this.filteredAchievements;
     var endingAchiev:Achievement[]=[];
     for(var i=0;i<startingAchiev.length;i++)
     {
@@ -90,7 +92,7 @@ export class AchievementSearchPage implements OnInit
           endingAchiev.push(achiev);
     }
     console.log(endingAchiev);
-    this.filteredAchiev=endingAchiev;
+    this.filteredAchievements=endingAchiev;
   }
 
   closeModal()

@@ -19,10 +19,10 @@ export class AchievementDetailsPage implements OnInit {
   }
 
   ngOnInit() {
-    this.achiev = this.dbService.getAchievByID(this.achievID)
+    this.achiev = this.dbService.getAchievementByID(this.achievID)
     console.log("AchievID: " + this.achievID)
     console.log("Achiev test:")
-    console.log(this.dbService.getAchievByID(this.achievID))
+    console.log(this.dbService.getAchievementByID(this.achievID))
   }
 
 }

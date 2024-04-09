@@ -3,13 +3,12 @@
   <div class="about-me-parent-container">
     <div class="about-me-center-container">
       <div class="pfp">
-        <ion-img src="../../../../assets/img/Katze.jpg" alt="Es ist eine Katze"></ion-img>
+        <ion-img [src]="achiever?.pfpUrl" alt="Es ist eine Katze"></ion-img>
       </div>
       <div class="about-me">
-        <ion-title class="big">Wer bin ich?</ion-title>
+        <ion-title class="big">{{achiever?.name}} {{achiever?.surname}}</ion-title>
         <ion-text class="about-me-text">
-          Hallo! Ich heiße Joshua Terranova und ich bin eine Katze. Ich bin sehr süß und schön!
-          Ich mache viele Dinge! Lesen Sie weiter unten!
+          {{achiever?.bio}}
         </ion-text>
       </div>
     </div>

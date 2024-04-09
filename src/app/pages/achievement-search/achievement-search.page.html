@@ -23,9 +23,13 @@
       <div class="tag-list">
         <app-tag *ngFor="let tag of selectedTags" [tagName]="tag" (tagToggled)="onToggleTag(tag)"></app-tag>
       </div>
+
+      <app-achiever-list [achieverList]="this.allAchievers"></app-achiever-list>
+      
     </div>
   </div>
 
-  <app-achievement-grid [achievList]="filteredAchiev"></app-achievement-grid>
+
+  <app-achievement-grid [achievList]="filteredAchievements"></app-achievement-grid>
 
 </ion-content>

@@ -5,8 +5,9 @@ Right now it only reads local json files for development purposes.
 
 import { Injectable } from "@angular/core";
 import { Achievement } from "src/models/achievement";
+import { Achiever } from "src/models/achiever";
 
-type DBAchievRecord=
+type DBAchievementRecord=
 {
     "id":string;
     "achiever-ids":string[];
@@ -20,11 +21,23 @@ type DBAchievRecord=
     "employer-id":string;
 }
 
+type DBAchieverRecord=
+{
+    "id":string;
+    "username":string;
+    "name":string;
+    "surname":string;
+    "bio":string;
+    "pfp-url":string;
+    "date-created":string;
+    "latest-access":string;
+}
+
 @Injectable()
 export class DBService
 {
     cachedAchievBatch:Achievement[]|null;
-    achievBatchDB:DBAchievRecord[]=
+    dbAchievements:DBAchievementRecord[]=
     [
         {
         "id":"A0000",
@@ -92,12 +105,37 @@ export class DBService
         "employer-id":"E0001"
         }
     ]
+
+    dbAchievers:DBAchieverRecord[]=
+    [
+        {
+            "id":"R0000",
+            "username":"joshua.terranova",
+            "name":"Joshua",
+            "surname":"Terranova",
+            "bio":"Hallo! Ich heiße Joshua Terranova und ich bin eine Katze. Ich bin sehr süß und schön! Ich mache viele Dinge! Lesen Sie weiter unten!",
+            "pfp-url":"../../../../assets/img/Katze.jpg",
+            "date-created":"09-04-2024",
+            "latest-access":"09-04-2024",
+        },
+        {
+            "id":"R0001",
+            "username":"vittorio.serra",
+            "name":"Vittorio",
+            "surname":"Serra",
+            "bio":"Chi lo sa, lo sa.",
+            "pfp-url":"../../../../assets/img/Katze.jpg",
+            "date-created":"08-04-2024",
+            "latest-access":"08-04-2024",
+        }
+    ]
+
     constructor()
     {
         this.cachedAchievBatch=null;
     }
 
-    parseAchievFromDB(dbAchiev:DBAchievRecord)
+    parseAchievementFromDB(dbAchiev:DBAchievementRecord):Achievement
     {
         let tsAchiev:Achievement = new Achievement(
             dbAchiev["id"],
@@ -114,13 +152,39 @@ export class DBService
         return tsAchiev
     }
     
-    parseAchievListFromDB(dbAchiev:DBAchievRecord[])
+    parseAchievementListFromDB(dbAchiev:DBAchievementRecord[]):Achievement[]
     {
         var returnArray=[];
         for(var i=0; i<dbAchiev.length;i++)
         {
             var tempAchiev=dbAchiev[i];
-            returnArray.push(this.parseAchievFromDB(tempAchiev));
+            returnArray.push(this.parseAchievementFromDB(tempAchiev));
+        }
+        return returnArray;
+    }
+
+    parseAchieverFromDB(dbAchiev:DBAchieverRecord):Achiever
+    {
+        let tsAchiev:Achiever = new Achiever(
+            dbAchiev["id"],
+            dbAchiev["username"],
+            dbAchiev["name"],
+            dbAchiev["surname"],
+            dbAchiev["bio"],
+            dbAchiev["pfp-url"],
+            new Date(dbAchiev["date-created"]),
+            new Date(dbAchiev["latest-access"]),
+        );
+        return tsAchiev
+    }
+    
+    parseAchieverListFromDB(dbAchiev:DBAchieverRecord[]):Achiever[]
+    {
+        var returnArray=[];
+        for(var i=0; i<dbAchiev.length;i++)
+        {
+            var tempAchiev=dbAchiev[i];
+            returnArray.push(this.parseAchieverFromDB(tempAchiev));
         }
         return returnArray;
     }
@@ -132,11 +196,11 @@ export class DBService
         var dbRes:any=[];
 
         //fake Query:
-        for(var i=0;i<this.achievBatchDB.length;i++)
+        for(var i=0;i<this.dbAchievements.length;i++)
         {
-            if(this.achievBatchDB[i]["achiever-ids"].includes(achieverID))
+            if(this.dbAchievements[i]["achiever-ids"].includes(achieverID))
             {
-                dbRes.push(this.achievBatchDB[i]);
+                dbRes.push(this.dbAchievements[i]);
                 console.log("dbRes");
             }
         }
@@ -168,15 +232,76 @@ export class DBService
         return returnArray;
     }
 
-    getAchievByID(desiredID:string):Achievement|null
+    getAllAchievements(pageSize:number=50, nPage:number=0):Achievement[]
+    {
+        var returnArray:Achievement[]=[];
+        var dbRes:any=[];
+
+        for(var i=0;i<this.dbAchievements.length;i++)
+        {
+          dbRes.push(this.dbAchievements[i]);
+        }
+
+        //parse db data into ts data
+        console.log("Db queried. Res: \n"+JSON.stringify(dbRes))
+        
+        returnArray=this.parseAchievementListFromDB(dbRes);
+
+        console.log("dbRes");
+        console.log(dbRes);
+        console.log("returnArray");
+        console.log(returnArray);
+        
+        this.cachedAchievBatch=returnArray;
+        return returnArray;
+    }
+
+    getAllAchievers(pageSize:number=50, nPage:number=0):Achiever[]
+    {
+        var returnArray:Achiever[]=[];
+        var dbRes:any=[];
+
+        for(var i=0;i<this.dbAchievers.length;i++)
+        {
+          dbRes.push(this.dbAchievers[i]);
+        }
+
+        //parse db data into ts data
+        console.log("Db queried. Res: \n"+JSON.stringify(dbRes))
+        
+        returnArray=this.parseAchieverListFromDB(dbRes);
+
+        console.log("dbRes");
+        console.log(dbRes);
+        console.log("returnArray");
+        console.log(returnArray);
+        
+        return returnArray;
+    }
+
+    getAchievementByID(desiredID:string):Achievement|null
     {
         //fake Query:
-        for(var i=0;i<this.achievBatchDB.length;i++)
+        for(var i=0;i<this.dbAchievements.length;i++)
         {
-            var tempAchiev=this.achievBatchDB[i]
+            var tempAchiev=this.dbAchievements[i]
             if(tempAchiev["id"]==desiredID)
             {
-                return this.parseAchievFromDB(tempAchiev);;
+                return this.parseAchievementFromDB(tempAchiev);;
+            }
+        }
+        return null;
+    }
+
+    getAchieverByID(desiredID:string):Achiever|null
+    {
+        //fake Query:
+        for(var i=0;i<this.dbAchievers.length;i++)
+        {
+            var tempAchiev=this.dbAchievers[i]
+            if(tempAchiev["id"]==desiredID)
+            {
+                return this.parseAchieverFromDB(tempAchiev);;
             }
         }
         return null;

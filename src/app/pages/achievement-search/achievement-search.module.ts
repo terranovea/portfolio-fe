@@ -10,6 +10,7 @@ import { AchievementSearchPage } from './achievement-search.page';
 import { NavbarModule } from 'src/app/components/navbar/navbar.module';
 import { TagModule } from 'src/app/components/tag/tag.module';
 import { AchievementGridModule } from 'src/app/components/achievement-grid/achievement-grid.module';
+import { AchieverListModule } from 'src/app/components/achiever-list/achiever-list.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AchievementGridModule } from 'src/app/components/achievement-grid/achie
     AchievementSearchPageRoutingModule,
     NavbarModule,
     TagModule,
-    AchievementGridModule
+    AchievementGridModule,
+    AchieverListModule
   ],
   declarations: [AchievementSearchPage],
 })
