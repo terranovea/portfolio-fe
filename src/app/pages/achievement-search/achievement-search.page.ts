@@ -7,7 +7,6 @@ import { DBService } from 'src/services/dbService';
   selector: 'app-achievement-search',
   templateUrl: './achievement-search.page.html',
   styleUrls: ['./achievement-search.page.scss'],
-  providers:[DBService],
 })
 export class AchievementSearchPage implements OnInit 
 {
@@ -21,7 +20,7 @@ export class AchievementSearchPage implements OnInit
   achieverID:string="R0000"
   
   constructor(private dbService:DBService) {
-    this.allAchiev=dbService.getUserAchievements(this.achieverID)
+    this.allAchiev=this.dbService.getUserAchievements(this.achieverID)
     this.filteredAchiev=[]
     this.allTags=[];
     this.selectedTags=[];

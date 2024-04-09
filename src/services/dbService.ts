@@ -3,6 +3,7 @@ THIS DOESN'T actually call a db yet.
 Right now it only reads local json files for development purposes.
 */
 
+import { Injectable } from "@angular/core";
 import { Achievement } from "src/models/achievement";
 
 type DBAchievRecord=
@@ -19,6 +20,7 @@ type DBAchievRecord=
     "employer-id":string;
 }
 
+@Injectable()
 export class DBService
 {
     cachedAchievBatch:Achievement[]|null;
@@ -29,7 +31,7 @@ export class DBService
         "achiever-ids":["R0000"],
         "title":"Robotic Collaboration Gripper",
         "desc":"Entschuldigugn, wo ist das Museum? Rechts oder Links? Ist das Museum da druben? Karl, wo bist du?",
-        "page-url":"A0000",
+        "page-url":"achievement/A0000",
         "img-url":"../../../../assets/img/0.jpg",
         "start-date":"09-01-2021",
         "end-date":"05-14-2022",
@@ -42,7 +44,7 @@ export class DBService
         "achiever-ids":["R0000"],
         "title":"Digital Story Explorer",
         "desc":"Hallo, wie ist es in Berlin? Ist das Wetter gut?",
-        "page-url":"A0001",
+        "page-url":"achievement/A0001",
         "img-url":"../../../../assets/img/0.jpg",
         "start-date":"09-01-2021",
         "end-date":"05-14-2022",
@@ -55,7 +57,7 @@ export class DBService
         "achiever-ids":["R0000"],
         "title":"Python Plugins for Grasshopper",
         "desc":"Wie heißen Sie? Ich heiße Joshua Terranova und ich spiele sehr gut Klavier. Ich auch spiele oft guitarre",
-        "page-url":"A0002",
+        "page-url":"achievement/A0002",
         "img-url":"../../../../assets/img/0.jpg",
         "start-date":"09-01-2021",
         "end-date":"05-14-2022",
@@ -68,7 +70,7 @@ export class DBService
         "achiever-ids":["R0001"],
         "title":"SOC Operator at Dauvea",
         "desc":"Ich Fruhstecke jeden morgen. Ich Trinke Milch gern, aber ich LIEBE deutsch. Ich spreche deutsch gern",
-        "page-url":"A0003",
+        "page-url":"achievement/A0003",
         "img-url":"../../../../assets/img/0.jpg",
         "start-date":"05-08-2021",
         "end-date":"05-02-2023",
@@ -81,7 +83,7 @@ export class DBService
         "achiever-ids":["R0001"],
         "title":"Software Developer at Dauvea",
         "desc":"Das Wetter ist nicht sehr gut heute. Es ist schlecht! Es ist bewolkt jeden Tag.",
-        "page-url":"A0004",
+        "page-url":"achievement/A0004",
         "img-url":"../../../../assets/img/0.jpg",
         "start-date":"05-02-2023",
         "end-date":"05-02-2023",

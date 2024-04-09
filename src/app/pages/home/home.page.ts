@@ -6,14 +6,12 @@ import { Achievement } from 'src/models/achievement';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  providers: [DBService]
 })
 export class HomePage {
 
   achieverID:string="R0000";
   achievList:Achievement[];
   constructor(private dbService:DBService) {
-    this.achievList=dbService.getUserAchievements(this.achieverID)
+    this.achievList=this.dbService.getUserAchievements(this.achieverID)
   }
-
 }

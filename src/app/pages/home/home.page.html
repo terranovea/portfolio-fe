@@ -1,28 +1,10 @@
 <ion-content>
   <app-navbar></app-navbar>
-  <div class="about-me-parent-container">
-    <div class="about-me-center-container">
-      <div class="pfp">
-        <ion-img src="../../../../assets/img/Katze.jpg" alt="Es ist eine Katze"></ion-img>
-      </div>
-      <div class="about-me">
-        <ion-title class="big">Wer bin ich?</ion-title>
-        <ion-text class="about-me-text">
-          Hallo! Ich heiße Joshua Terranova und ich bin eine Katze. Ich bin sehr süß und schön!
-          Ich mache viele Dinge! Lesen Sie weiter unten!
-        </ion-text>
-      </div>
+  <div class="flex-container">
+    <div class="title-container">
+      <ion-text class="big">Portfolio</ion-text>
+      <ion-text color="secondary"><small>A web development study by Josh</small></ion-text>
+      <ion-button routerLink="/achiever/R0000" fill="clear" color="tertiary">My achiever page</ion-button>
     </div>
   </div>
-  <div>
-    <ion-title class="big">My Achievements</ion-title>
-  </div>
-  <app-achievement-grid [achievList]="achievList"></app-achievement-grid>
-
-  <app-contact-form></app-contact-form>
-  
 </ion-content>
-
-<ion-footer>
-  <app-linkbar></app-linkbar>
-</ion-footer>

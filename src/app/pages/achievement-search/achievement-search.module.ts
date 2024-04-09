@@ -11,6 +11,7 @@ import { NavbarModule } from 'src/app/components/navbar/navbar.module';
 import { TagModule } from 'src/app/components/tag/tag.module';
 import { AchievementGridModule } from 'src/app/components/achievement-grid/achievement-grid.module';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -21,6 +22,6 @@ import { AchievementGridModule } from 'src/app/components/achievement-grid/achie
     TagModule,
     AchievementGridModule
   ],
-  declarations: [AchievementSearchPage]
+  declarations: [AchievementSearchPage],
 })
 export class AchievementSearchPageModule {}

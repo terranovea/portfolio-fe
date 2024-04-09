@@ -16,9 +16,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/achievement-search/achievement-search.module').then( m => m.AchievementSearchPageModule)
   },
   {
-    path: ':achievID',
+    path: 'achiever',
+    loadChildren: () => import('./pages/achiever/achiever.module').then( m => m.AchieverPageModule)
+  },
+  {
+    path: 'achievement',
     loadChildren: () => import('./pages/achievement-details/achievement-details.module').then( m => m.AchievementDetailsPageModule)
   },
+
+
 ];
 
 @NgModule({
