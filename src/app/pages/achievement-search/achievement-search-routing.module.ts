@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: AchievementSearchPage
+  },
+  {
+    path: ':searchString',
+    component: AchievementSearchPage
   }
 ];
 

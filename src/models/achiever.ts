@@ -4,6 +4,7 @@ export class Achiever
     username:string;
     name:string;
     surname:string;
+    email:string;
     bio:string;
     pfpUrl:string = '../../../../assets/img/Katze.jpg';
     dateCreated:Date;
@@ -14,6 +15,7 @@ export class Achiever
         username:string,
         name:string,
         surname:string,
+        email:string,
         bio:string,
         pfpUrl:string,
         dateCreated:Date,
@@ -24,6 +26,7 @@ export class Achiever
         this.username=username;
         this.name=name;
         this.surname=surname;
+        this.email=email;
         this.bio=bio;
         this.pfpUrl=pfpUrl;
         this.dateCreated=dateCreated;

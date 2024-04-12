@@ -1,5 +1,6 @@
 <ion-toolbar>
   <div class="flex-container">
+    <app-toolbar-searchbar *ngIf="hasSearchbar"></app-toolbar-searchbar>
     <ion-button color="primary" fill="clear" [href]="'/'">
       <ion-icon name="home-outline" slot="start" ></ion-icon>
       Home

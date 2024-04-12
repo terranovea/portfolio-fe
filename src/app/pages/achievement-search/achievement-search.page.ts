@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { Achievement } from 'src/models/achievement';
 import { Achiever } from 'src/models/achiever';
@@ -20,9 +21,12 @@ export class AchievementSearchPage implements OnInit
   searchString:string="";
   allAchievers:Achiever[];
   
-  constructor(private dbService:DBService) {
+  constructor(private dbService:DBService, private activatedRoute:ActivatedRoute) {
     this.allAchievements=this.dbService.getAllAchievements();
     this.allAchievers=this.dbService.getAllAchievers()
+    this.searchString=this.activatedRoute.snapshot.params["searchString"] || "";
+    console.log("I'm search page.ts and I'm outputting route snapshot params:");
+    console.log(this.activatedRoute.snapshot.params);
     this.filteredAchievements=[]
     this.allTags=[];
     this.selectedTags=[];

@@ -27,6 +27,7 @@ type DBAchieverRecord=
     "username":string;
     "name":string;
     "surname":string;
+    "email":string;
     "bio":string;
     "pfp-url":string;
     "date-created":string;
@@ -113,6 +114,7 @@ export class DBService
             "username":"joshua.terranova",
             "name":"Joshua",
             "surname":"Terranova",
+            "email":"terranova@dauvea.it",
             "bio":"Hallo! Ich heiße Joshua Terranova und ich bin eine Katze. Ich bin sehr süß und schön! Ich mache viele Dinge! Lesen Sie weiter unten!",
             "pfp-url":"../../../../assets/img/Katze.jpg",
             "date-created":"09-04-2024",
@@ -123,6 +125,7 @@ export class DBService
             "username":"vittorio.serra",
             "name":"Vittorio",
             "surname":"Serra",
+            "email":"joshuaterranova01@gmail.com",
             "bio":"Chi lo sa, lo sa.",
             "pfp-url":"../../../../assets/img/Katze.jpg",
             "date-created":"08-04-2024",
@@ -170,6 +173,7 @@ export class DBService
             dbAchiev["username"],
             dbAchiev["name"],
             dbAchiev["surname"],
+            dbAchiev["email"],
             dbAchiev["bio"],
             dbAchiev["pfp-url"],
             new Date(dbAchiev["date-created"]),
