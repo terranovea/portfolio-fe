@@ -20,16 +20,19 @@ export class AchievementSearchPage implements OnInit
   filteredAchievements:Achievement[];
   searchString:string="";
   allAchievers:Achiever[];
+  filteredAchievers:Achiever[];
   
   constructor(private dbService:DBService, private activatedRoute:ActivatedRoute) {
     this.allAchievements=this.dbService.getAllAchievements();
     this.allAchievers=this.dbService.getAllAchievers()
     this.searchString=this.activatedRoute.snapshot.params["searchString"] || "";
-    console.log("I'm search page.ts and I'm outputting route snapshot params:");
-    console.log(this.activatedRoute.snapshot.params);
+
+    this.filteredAchievers=[]
     this.filteredAchievements=[]
     this.allTags=[];
     this.selectedTags=[];
+
+    //gets the list of all existing tags
     for(let i=0; i<this.allAchievements.length;i++)
     {
       for(let j=0;j<this.allAchievements[i].tags.length;j++)
@@ -39,7 +42,8 @@ export class AchievementSearchPage implements OnInit
           this.allTags.push(currentTag);
       }
     }
-    this.filterAchievements()
+
+    this.filterSearchResults()
   }
 
   onToggleTag(tagName:string)
@@ -54,8 +58,33 @@ export class AchievementSearchPage implements OnInit
 
   onSearchChange(searchString:string)
   {
+    console.log("onSearchChange called");
     this.searchString=searchString;
+    this.filterSearchResults();
+  }
+
+  filterSearchResults()
+  {
+    console.log("filterSearchResults called");
+    this.filterAchievers();
     this.filterAchievements();
+  }
+
+  filterAchievers()
+  {
+    console.log("filterAchievers called");
+    var startingAchiev:Achiever[]=this.allAchievers;
+    var endingAchiev:Achiever[]=[];
+    for(var i=0;i<startingAchiev.length;i++)
+    {
+        var achiev=startingAchiev[i];
+        if(achiev.name.toLowerCase().includes(this.searchString.toLowerCase())
+          || achiev.surname.toLowerCase().includes(this.searchString.toLowerCase())
+          || achiev.username.toLowerCase().includes(this.searchString.toLowerCase()))
+          endingAchiev.push(achiev);
+    }
+    console.log(endingAchiev);
+    this.filteredAchievers=endingAchiev;
   }
 
   filterAchievements()

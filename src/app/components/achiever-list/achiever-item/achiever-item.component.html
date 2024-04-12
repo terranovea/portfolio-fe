@@ -2,5 +2,9 @@
   <ion-avatar>
     <ion-img [src]="achiever?.pfpUrl"></ion-img>
   </ion-avatar>
-  <ion-title>{{achiever?.name}} {{achiever?.surname}}</ion-title>
+  <div class="info-area">
+    <ion-text class="achiever-name">{{achiever?.name}} {{achiever?.surname}}</ion-text>
+    <br />
+    <ion-text class="achiever-strings"> {{achiever?.username}}</ion-text>
+  </div>
 </ion-item>

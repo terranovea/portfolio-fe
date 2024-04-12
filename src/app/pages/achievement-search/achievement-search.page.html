@@ -3,7 +3,11 @@
 
   <div class="flex-container">
     <div class="filter-card">
-      <ion-searchbar [(ngModel)]="this.searchString" (ionInput)="filterAchievements()"></ion-searchbar>
+      <ion-searchbar [(ngModel)]="this.searchString" (ionInput)="filterSearchResults()"></ion-searchbar>
+
+
+      <app-achiever-list [achieverList]="this.filteredAchievers"></app-achiever-list>
+
 
       <ion-button id="openTagModal" color="tertiary" fill="clear" expand="block">Filter by tags</ion-button>
       <ion-modal trigger="openTagModal" #tagModal>
@@ -18,14 +22,11 @@
           </div>
         </ng-template>
       </ion-modal>
-    
 
       <div class="tag-list">
         <app-tag *ngFor="let tag of selectedTags" [tagName]="tag" (tagToggled)="onToggleTag(tag)"></app-tag>
       </div>
 
-      <app-achiever-list [achieverList]="this.allAchievers"></app-achiever-list>
-      
     </div>
   </div>
 
