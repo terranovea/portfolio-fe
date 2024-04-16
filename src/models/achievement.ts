@@ -1,7 +1,9 @@
+import { Achiever } from "./achiever";
+
 export class Achievement
 {
     id:string;
-    achieverIDs:string[];
+    achieverObjs:Achiever[];
     title:string;
     desc:string;
     pageUrl:string;
@@ -11,11 +13,11 @@ export class Achievement
     tags:string[]=[];
     employerID:string|null=null;
     isPublic:boolean;
-    constructor(id:string,achieverIDs:string[],title:string,desc:string,pageUrl:string,imgUrl:string,startDate:Date,endDate:Date|null, 
+    constructor(id:string,achieverObjs:Achiever[],title:string,desc:string,pageUrl:string,imgUrl:string,startDate:Date,endDate:Date|null, 
         tags:string[], employerID:string|null, isPublic:boolean=true)
     { 
         this.id=id;
-        this.achieverIDs=achieverIDs;
+        this.achieverObjs=achieverObjs;
         this.title=title;
         this.desc=desc;
         this.pageUrl=pageUrl;

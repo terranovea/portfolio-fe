@@ -17,7 +17,7 @@ export class AchieverPage implements OnInit {
 
   constructor(private dbService:DBService,private activatedRoute:ActivatedRoute)
   {
-    this.achievList=this.dbService.getUserAchievements(this.achieverID);
+    this.achievList=this.dbService.getUserAchievements(this.achieverID)||[];
   }
 
   ngOnInit()

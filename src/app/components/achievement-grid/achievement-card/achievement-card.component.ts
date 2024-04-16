@@ -8,12 +8,25 @@ import { Achievement } from 'src/models/achievement';
 })
 export class AchievementCardComponent  implements OnInit {
 
-  @Input() achiev:Achievement|null=null;
+  @Input() achievement:Achievement|null=null;
+  achieverString:string="";
   
-  constructor()
-  {}
+  constructor(){}
 
-
-  ngOnInit() {}
-
+  ngOnInit()
+  {
+    console.log(this.achievement)
+    if(this.achievement!=null)
+    {
+      if(this.achievement.achieverObjs.length>0)
+      {
+        console.log("ACHIEVEMENT CARD CONSTRUCTOR");
+        console.log(this.achievement.achieverObjs);
+        var firstAchiever=this.achievement.achieverObjs[0];
+        console.log(firstAchiever);
+        this.achieverString=firstAchiever.name+" "+firstAchiever.surname;
+        console.log(this.achieverString)
+      }
+    }
+  }
 }

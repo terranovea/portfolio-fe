@@ -12,6 +12,6 @@ export class HomePage {
   achieverID:string="R0000";
   achievList:Achievement[];
   constructor(private dbService:DBService) {
-    this.achievList=this.dbService.getUserAchievements(this.achieverID)
+    this.achievList=this.dbService.getUserAchievements(this.achieverID)||[]
   }
 }

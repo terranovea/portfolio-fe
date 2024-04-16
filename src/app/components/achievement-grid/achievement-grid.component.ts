@@ -8,9 +8,9 @@ import { Achievement } from 'src/models/achievement';
 })
 export class AchievementGridComponent  implements OnInit {
   @Input() achievList:Achievement[]=[];
-
-  constructor() {
-  }
+  
+  constructor()
+  {}
 
   ngOnInit() {}
 

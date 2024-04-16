@@ -138,11 +138,24 @@ export class DBService
         this.cachedAchievBatch=null;
     }
 
-    parseAchievementFromDB(dbAchiev:DBAchievementRecord):Achievement
+    parseAchievementFromDB(dbAchiev:DBAchievementRecord):Achievement|null
     {
+        var achieversList:Achiever[]=[];
+        var achieverIDs:string[]=dbAchiev["achiever-ids"];
+        var tempAchiever:Achiever|null;
+
+        for(var i=0;i<achieverIDs.length;i++)
+        {
+            tempAchiever=this.getAchieverByID(achieverIDs[i]);
+            if(tempAchiever==null)
+                return null;
+            else
+                achieversList.push(tempAchiever);
+        }
+
         let tsAchiev:Achievement = new Achievement(
             dbAchiev["id"],
-            dbAchiev["achiever-ids"],
+            achieversList,
             dbAchiev["title"],
             dbAchiev["desc"],
             dbAchiev["page-url"],
@@ -155,13 +168,19 @@ export class DBService
         return tsAchiev
     }
     
-    parseAchievementListFromDB(dbAchiev:DBAchievementRecord[]):Achievement[]
+    parseAchievementListFromDB(dbAchiev:DBAchievementRecord[]):Achievement[]|null
     {
-        var returnArray=[];
+        var returnArray:Achievement[]=[];
+        var tempAchiev:DBAchievementRecord;
+        var tempParsedAchiev:Achievement|null;
         for(var i=0; i<dbAchiev.length;i++)
         {
-            var tempAchiev=dbAchiev[i];
-            returnArray.push(this.parseAchievementFromDB(tempAchiev));
+            tempAchiev=dbAchiev[i];
+            tempParsedAchiev=this.parseAchievementFromDB(tempAchiev);
+            if(tempParsedAchiev==null)
+                return null;
+            else
+                returnArray.push(tempParsedAchiev);
         }
         return returnArray;
     }
@@ -193,10 +212,9 @@ export class DBService
         return returnArray;
     }
     
-    getUserAchievements(achieverID:string):Achievement[]
+    getUserAchievements(achieverID:string):Achievement[]|null
     {
-        var returnArray:Achievement[]=[];
-        var tempAchiev:any;
+        var returnArray:Achievement[]|null;
         var dbRes:any=[];
 
         //fake Query:
@@ -211,22 +229,9 @@ export class DBService
 
         //parse db data into ts data
         console.log("Db queried. Res: \n"+JSON.stringify(dbRes))
-        for(var i=0; i<dbRes.length;i++)
-        {
-            var tempAchiev=dbRes[i];
-            returnArray.push(new Achievement(
-                tempAchiev["id"],
-                tempAchiev["achiever-ids"],
-                tempAchiev["title"],
-                tempAchiev["desc"],
-                tempAchiev["page-url"],
-                tempAchiev["img-url"],
-                new Date(tempAchiev["start-date"]),
-                new Date(tempAchiev["end-date"]),
-                tempAchiev["tags"],
-                tempAchiev["employer-id"]
-            ));
-        }
+        
+        returnArray=this.parseAchievementListFromDB(dbRes);
+
         console.log("dbRes");
         console.log(dbRes);
         console.log("returnArray");
@@ -236,11 +241,12 @@ export class DBService
         return returnArray;
     }
 
-    getAllAchievements(pageSize:number=50, nPage:number=0):Achievement[]
+    getAllAchievements(pageSize:number=50, nPage:number=0):Achievement[]|null
     {
-        var returnArray:Achievement[]=[];
+        var returnArray:Achievement[]|null=[];
         var dbRes:any=[];
 
+        //fake query
         for(var i=0;i<this.dbAchievements.length;i++)
         {
           dbRes.push(this.dbAchievements[i]);

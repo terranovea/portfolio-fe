@@ -22,6 +22,9 @@ ion-card-title{
 
 .cutoff-text{
     display:-webkit-box;
+
+    font-size:1em;
+    line-height:var(--line-height);
     
     -webkit-box-orient: vertical;
     -webkit-line-clamp: var(--max-content-lines);

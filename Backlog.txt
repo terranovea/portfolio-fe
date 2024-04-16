@@ -3,7 +3,7 @@ Web Design:
     to search for achievements by title, employer or by TAGS!
     - Add a modal for tag selection (TOP) 💚
     - Implement search by title and description (FAVOLA) 💚
-    - Add Achiever selection
+    - Add Achiever selection (DONE) 💚
     - Rename to Search?
 - Create an Achiever page
     to display details about a person with achievements
@@ -11,8 +11,6 @@ Web Design:
     - Create new simple HomePage with temporary link to Josh (Achiever) 💚
 - Create employer component
     to display next to every achievement that has an employer
-- Create an arrow component for the splash screen
-    to lightly incentivise a user to scroll down
 
 Bugs:
 - Why isn't the footer in linkbar transparent?
@@ -20,6 +18,9 @@ Bugs:
 Optimisations:
 - Fix RouterLink on components
 - Redesign Data query structure (store achievment list in session data maybe)
+
+Order:
+- replace null return values with custom Error Type for dbService to handle and display errors
 
 Styles:
 - Fix those f***ing colours goddamnit! They're hideous! XD

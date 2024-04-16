@@ -1,11 +1,14 @@
-<ion-card [href]="'/'+achiev?.pageUrl">
-  <ion-img alt="img not found?" [src]="achiev?.imgUrl"></ion-img>
+<ion-card [href]="'/'+achievement?.pageUrl">
+  <ion-img alt="img not found?" [src]="achievement?.imgUrl"></ion-img>
   <ion-card-header>
-    <ion-card-title>{{achiev?.title}}</ion-card-title>
-    <ion-card-subtitle><small>{{achiev?.startDate | date:"y"}} - {{achiev?.endDate | date:"y"}}</small></ion-card-subtitle>
+    <ion-card-title>{{achievement?.title}}</ion-card-title>
+    <ion-card-subtitle>
+      {{achieverString}}<br />
+      <small>{{achievement?.startDate | date:"y"}} - {{achievement?.endDate | date:"y"}}</small>
+    </ion-card-subtitle>
   </ion-card-header>
   <ion-card-content class="cutoff-text">
-    {{achiev?.desc}}
+    {{achievement?.desc}}
     <div class="desc-fade-gradient"></div>
   </ion-card-content>
   <div class="read-more-btn">

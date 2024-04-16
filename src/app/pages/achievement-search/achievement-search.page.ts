@@ -16,14 +16,16 @@ export class AchievementSearchPage implements OnInit
 
   allTags:string[];
   selectedTags:string[];
-  allAchievements:Achievement[];
+  allAchievements:Achievement[]=[];
   filteredAchievements:Achievement[];
   searchString:string="";
   allAchievers:Achiever[];
   filteredAchievers:Achiever[];
   
   constructor(private dbService:DBService, private activatedRoute:ActivatedRoute) {
-    this.allAchievements=this.dbService.getAllAchievements();
+    var allAchievements=this.dbService.getAllAchievements();
+    if(allAchievements!=null)
+      this.allAchievements=allAchievements;
     this.allAchievers=this.dbService.getAllAchievers()
     this.searchString=this.activatedRoute.snapshot.params["searchString"] || "";
 
