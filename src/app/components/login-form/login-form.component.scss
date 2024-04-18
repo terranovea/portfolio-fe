@@ -1,0 +1,46 @@
+.main-container
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:2em;
+    margin:0;
+    width:100%;
+    max-width:var(--article-content-width);
+    height:100%;
+}
+
+.comp-tel-field
+{
+    display:flex;
+    align-items: center;
+    justify-content: top;
+    gap:0.5em;
+}
+
+.prefix-field-plus
+{
+    display:flex;
+    align-items: center;
+    justify-content: top;
+}
+.prefix-field
+{
+    width:1.75em;
+}
+
+.field-title
+{
+    display:flex;
+    align-items:center;
+    justify-content: end;
+    color:var(--ion-color-dark);
+    font-weight:550;
+}
+
+.main-btn
+{
+    width:80%;
+    font-size: 1.5em;
+    font-weight:700;
+}

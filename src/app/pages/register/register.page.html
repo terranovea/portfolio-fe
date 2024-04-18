@@ -1,0 +1,77 @@
+<ion-content>
+  <app-navbar></app-navbar>
+  <div class="flex-container">
+    <ion-card>
+      <ion-card-content>
+        <div class="inline-input-container">
+          <ion-grid>
+            <ion-row>
+              <ion-title class="big"><div class="ion-text-wrap">Register</div></ion-title>
+            </ion-row>
+            <ion-row>
+              <ion-col size="3" class="field-title">
+                Name:
+              </ion-col>
+              <ion-col>
+                <ion-input name="name" placeholder="John" color="tertiary"></ion-input>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="3" class="field-title">
+                Surname:
+              </ion-col>
+              <ion-col>
+                <ion-input name="surame" placeholder="Doe" color="tertiary"></ion-input>
+              </ion-col>
+            </ion-row>
+            
+            <ion-row>
+              <ion-col size="3" class="field-title">
+                Username:
+              </ion-col>
+              <ion-col>
+                <ion-input name="username" placeholder="john.doe" color="tertiary"></ion-input>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="3" class="field-title">
+                Email:
+              </ion-col>
+              <ion-col>
+                <ion-input name="email" placeholder="johndoe@nomail.com" color="tertiary"></ion-input>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="3" class="field-title">
+                Tel:
+              </ion-col>
+              <ion-col>
+                <div class="comp-tel-field">
+                  <div class="prefix-field-plus">
+                    +
+                    <ion-input class="prefix-field" placeholder="000" name="prefix" color="tertiary"></ion-input>
+                  </div>
+                  <ion-input class="tel-field" placeholder="0000000000" name="tel" color="tertiary"></ion-input>
+                </div>
+              </ion-col>
+            </ion-row>
+
+            <div class="flex-container">
+              <ion-button class="main-btn" color="tertiary" fill="clear"><ion-icon slot="start" name="log-in-outline"></ion-icon>Sign up</ion-button>
+            </div>
+            <div class="flex-container">
+              <ion-text id="login-label" color="medium">already have an account?</ion-text>
+            </div>
+            <div class="flex-container">
+              <ion-button class="alt-btn" color="primary" fill="clear" [href]="'/login'">Log in</ion-button>
+            </div>
+            
+          </ion-grid>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

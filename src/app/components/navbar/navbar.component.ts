@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { IonModal } from '@ionic/angular';
 
 @Component({
   selector: 'app-navbar',
@@ -7,8 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NavbarComponent  implements OnInit {
   @Input() hasSearchbar:Boolean=true;
+  @ViewChild(IonModal) logInModal:any;
   constructor() { }
 
   ngOnInit() {}
 
+  closeModal()
+  {
+    this.logInModal.dismiss()
+  }
 }

@@ -9,6 +9,7 @@ import { AchievementGridModule } from '../../components/achievement-grid/achieve
 import { LinkbarModule } from 'src/app/components/linkbar/linkbar.module';
 import { ContactFormModule } from 'src/app/components/contact-form/contact-form.module';
 import { NavbarModule } from 'src/app/components/navbar/navbar.module';
+import { LoginFormModule } from 'src/app/components/login-form/login-form.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { NavbarModule } from 'src/app/components/navbar/navbar.module';
     LinkbarModule,
     ContactFormModule,
     AchievementGridModule,
-    NavbarModule
+    NavbarModule,
+    LoginFormModule
   ],
   declarations: [HomePage]
 })

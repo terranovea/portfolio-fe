@@ -1,0 +1,38 @@
+<div class="main-container">
+  <div class="inline-input-container">
+    <ion-grid>
+      <ion-row>
+        <ion-title class="big"><div class="ion-text-wrap">Log in</div></ion-title>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="3" class="field-title">
+          Username:
+        </ion-col>
+        <ion-col>
+          <ion-input name="email" placeholder="john.doe" color="tertiary"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="3" class="field-title">
+          Password:
+        </ion-col>
+        <ion-col>
+          <ion-input name="name" type="password" placeholder="Password" color="tertiary"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <div class="flex-container">
+        <ion-button class="main-btn" color="tertiary" fill="clear"><ion-icon slot="start" name="log-in-outline"></ion-icon>Log in</ion-button>
+      </div>
+      <div class="flex-container">
+        <ion-text>or</ion-text>
+      </div>
+      <div class="flex-container">
+        <ion-button class="alt-btn" color="primary" fill="clear" [href]="'/register'">register</ion-button>
+      </div>
+
+    </ion-grid>
+  </div>
+</div>

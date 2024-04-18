@@ -22,7 +22,19 @@ const routes: Routes = [
   {
     path: 'achievement',
     loadChildren: () => import('./pages/achievement-details/achievement-details.module').then( m => m.AchievementDetailsPageModule)
+  },  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'create-achievement',
+    loadChildren: () => import('./pages/create-achievement/create-achievement.module').then( m => m.CreateAchievementPageModule)
+  },
+
 
 
 ];
