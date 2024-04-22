@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -7,8 +8,30 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LoginFormComponent  implements OnInit {
   @Input() bigTitle:boolean=true;
-  constructor() { }
+  username:string="";
+  password:string="";
+
+  constructor(private router:Router) { }
 
   ngOnInit() {}
 
+  logInAttempt()
+  {
+    console.log("Log in clicked!");
+    //backendCheck
+    //onSuccess:
+    var userID:string="R0000";
+    var token:string="token!";
+    var pfpUrl:string="../../../../assets/img/Katze.jpg";
+    sessionStorage.setItem('userID', userID);
+    sessionStorage.setItem('username', this.username);
+    sessionStorage.setItem('token', token);
+    sessionStorage.setItem('pfpUrl', pfpUrl);
+    console.log(sessionStorage.getItem("username"));
+    console.log(sessionStorage.getItem("userID"));
+    console.log(sessionStorage.getItem("token"));
+    console.log(sessionStorage.getItem("pfpUrl"));
+
+    this.router.navigate([`achiever/${userID}`])
+  }
 }

@@ -15,6 +15,8 @@ export class AchieverPage implements OnInit {
   achiever:Achiever|null=this.dbService.getAchieverByID(this.achieverID);
   achievList:Achievement[]=[];
 
+  ownerView:boolean=sessionStorage.getItem("userID")==this.achieverID;
+
   constructor(private dbService:DBService,private activatedRoute:ActivatedRoute)
   {
     this.achievList=this.dbService.getUserAchievements(this.achieverID)||[];

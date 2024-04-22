@@ -1,6 +1,7 @@
 <div class="flex-container">
   <div class="main-grid">
-    <app-achievement-card  class="hvr-grow"
+    <app-add-card class="hvr-grow" *ngIf="additionEnabled"></app-add-card>
+    <app-achievement-card class="hvr-grow"
     *ngFor="let achievement of achievList" [achievement]="achievement">
   </app-achievement-card>
   </div>

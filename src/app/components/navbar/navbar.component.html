@@ -1,14 +1,37 @@
-<ion-toolbar>
+<ion-toolbar id="content">
   <div class="flex-container">
     <app-toolbar-searchbar *ngIf="hasSearchbar"></app-toolbar-searchbar>
     <ion-button color="primary" fill="clear" [href]="'/'">
       <ion-icon name="home-outline" slot="start" ></ion-icon>
       Home
     </ion-button>
-    <ion-button color="primary" fill="clear" id="openLogInModal" [href]="'/login'">
+
+    <ion-button *ngIf="!isLoggedIn" color="primary" fill="clear" [href]="'/login'">
       <ion-icon name="log-in-outline" slot="start"></ion-icon>
       Log in
     </ion-button>
 
+    <ion-menu-toggle>
+      <ion-chip *ngIf="isLoggedIn" color="primary" fill="clear">
+        <ion-avatar>
+          <img *ngIf="imgUrl!=null" [src]="imgUrl" />
+          <img *ngIf="imgUrl==null" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <ion-label>Account</ion-label>
+      </ion-chip>
+    </ion-menu-toggle>
   </div>
 </ion-toolbar>
+
+<ion-menu side="end" contentId="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Account</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-button color="danger" fill="clear" (click)="logOut()" href="/">
+      Log-out
+    </ion-button>
+  </ion-content>
+</ion-menu>

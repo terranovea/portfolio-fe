@@ -9,12 +9,21 @@ import { IonModal } from '@ionic/angular';
 export class NavbarComponent  implements OnInit {
   @Input() hasSearchbar:Boolean=true;
   @ViewChild(IonModal) logInModal:any;
-  constructor() { }
 
-  ngOnInit() {}
+  isLoggedIn:boolean=sessionStorage.getItem("userID")!=null;
+  imgUrl:string|null=sessionStorage.getItem("pfpUrl");
+
+  constructor() {}
+
+  ngOnInit(){}
 
   closeModal()
   {
     this.logInModal.dismiss()
+  }
+
+  logOut()
+  {
+    sessionStorage.clear();
   }
 }

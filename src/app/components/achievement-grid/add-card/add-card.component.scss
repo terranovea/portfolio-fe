@@ -1,0 +1,49 @@
+ion-card
+{
+    position:relative;
+
+    width:14rem;
+    height:calc(100% - 1.2rem); //really, it should depend on the padding of the other cards
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card-container
+{
+    height:100%;
+}
+
+#appearing-text
+{
+    position:absolute;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    top:0%;
+    width:100%;
+    height:100%;
+    z-index:1;
+}
+
+ion-icon
+{
+    height:3rem;
+}
+
+ion-card-title
+{
+    font-size:1rem;
+    font-weight: 550;
+    color:rgba(0,0,0,0);
+}
+
+.hvr-fade-tertiary:hover > div > ion-card-title,
+.hvr-fade-tertiary:focus > div > ion-card-title,
+.hvr-fade-tertiary:active> div > ion-card-title
+{
+    color:var(--ion-tertiary-contrast)
+}
