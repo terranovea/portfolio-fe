@@ -10,7 +10,9 @@ export class NavbarComponent  implements OnInit {
   @Input() hasSearchbar:Boolean=true;
   @ViewChild(IonModal) logInModal:any;
 
-  isLoggedIn:boolean=sessionStorage.getItem("userID")!=null;
+  userID:string|null=sessionStorage.getItem("userID");
+  username:string|null=sessionStorage.getItem("username");
+  isLoggedIn:boolean=this.userID!=null;
   imgUrl:string|null=sessionStorage.getItem("pfpUrl");
 
   constructor() {}
