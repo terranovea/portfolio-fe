@@ -14,8 +14,7 @@ export class AchievementSearchPage implements OnInit
 {
   @ViewChild(IonModal) tagModal:any;
 
-  allTags:string[];
-  selectedTags:string[];
+  selectedTags:string[]=[];
   allAchievements:Achievement[]=[];
   filteredAchievements:Achievement[];
   searchString:string="";
@@ -31,31 +30,9 @@ export class AchievementSearchPage implements OnInit
 
     this.filteredAchievers=[]
     this.filteredAchievements=[]
-    this.allTags=[];
     this.selectedTags=[];
 
-    //gets the list of all existing tags
-    for(let i=0; i<this.allAchievements.length;i++)
-    {
-      for(let j=0;j<this.allAchievements[i].tags.length;j++)
-      {
-        let currentTag=this.allAchievements[i].tags[j];
-        if(!(this.allTags.includes(currentTag)))
-          this.allTags.push(currentTag);
-      }
-    }
-
     this.filterSearchResults()
-  }
-
-  onToggleTag(tagName:string)
-  {
-    if(this.selectedTags.includes(tagName))
-      this.selectedTags.splice(this.selectedTags.indexOf(tagName),1);
-    else
-      this.selectedTags.push(tagName);
-    this.filterAchievements();
-    console.log(`Selected tags:${this.selectedTags}`)
   }
 
   onSearchChange(searchString:string)
@@ -130,10 +107,7 @@ export class AchievementSearchPage implements OnInit
     this.filteredAchievements=endingAchiev;
   }
 
-  closeModal()
-  {
-    this.tagModal.dismiss()
-  }
+
 
   ngOnInit() {
     

@@ -1,0 +1,14 @@
+<ion-button *ngIf="!isButtonBlock" id="openTagModal" color="tertiary" fill="clear">{{buttonText}}</ion-button>
+<ion-button *ngIf="isButtonBlock" id="openTagModal" color="tertiary" fill="clear" expand="block">{{buttonText}}</ion-button>
+<ion-modal trigger="openTagModal" #tagModal>
+  <ng-template>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeModal()">close</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <div class="flex-container">
+      <app-tag [selectable]="true" *ngFor="let tag of allTags" [selected]="selectedTags.includes(tag)" [tagName]="tag" (tagToggled)="onToggleTag(tag)"></app-tag>
+    </div>
+  </ng-template>
+</ion-modal>

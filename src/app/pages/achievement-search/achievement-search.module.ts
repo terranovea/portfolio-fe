@@ -11,6 +11,7 @@ import { NavbarModule } from 'src/app/components/navbar/navbar.module';
 import { TagModule } from 'src/app/components/tag/tag.module';
 import { AchievementGridModule } from 'src/app/components/achievement-grid/achievement-grid.module';
 import { AchieverListModule } from 'src/app/components/achiever-list/achiever-list.module';
+import { TagSelectorModule } from 'src/app/components/tag-selector/tag-selector.module';
 
 
 @NgModule({
@@ -21,8 +22,9 @@ import { AchieverListModule } from 'src/app/components/achiever-list/achiever-li
     AchievementSearchPageRoutingModule,
     NavbarModule,
     TagModule,
+    TagSelectorModule,
     AchievementGridModule,
-    AchieverListModule
+    AchieverListModule,
   ],
   declarations: [AchievementSearchPage],
 })

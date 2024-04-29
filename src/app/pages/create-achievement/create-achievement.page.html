@@ -8,39 +8,77 @@
               <ion-title class="big"><div class="ion-text-wrap">New Achievement</div></ion-title>
             </ion-row>
 
-            <ion-row>
-              <ion-col size="3" class="field-title">
-                Title:
-              </ion-col>
-              <ion-col>
-                <ion-input name="title" placeholder="My Achievement" color="tertiary"></ion-input>
-              </ion-col>
-            </ion-row>
+            <form name="new-achievement-form">
+              <ion-row>
+                <ion-col size="3" class="field-title">
+                  Title:
+                </ion-col>
+                <ion-col>
+                  <ion-input name="title" placeholder="My Achievement" color="tertiary" [(ngModel)]="titleValue"></ion-input>
+                </ion-col>
+              </ion-row>
 
-            <ion-row>
-              <ion-col size="3" class="field-title">
-                Description:
-              </ion-col>
-              <ion-col>
-                <ion-textarea name="description" placeholder="Enter your description here" color="tertiary"></ion-textarea>
-              </ion-col>
-            </ion-row>
-          
-            <ion-row>
-              <ion-col size="3" class="field-title">
-                Tags:
-              </ion-col>
-              <ion-col>
-                <ion-textarea name="tags" placeholder="Web development, software development, etc..." color="tertiary"></ion-textarea>
-              </ion-col>
-            </ion-row>
+              <ion-row>
+                <ion-col size="3" class="field-title">
+                  Start Date:
+                </ion-col>
+                <ion-col class="date-button-container">
+                  <ion-datetime-button datetime="start-date" name="start-date" [(ngModel)]="startDateValue"></ion-datetime-button>
+                </ion-col>
+                <ion-modal [keepContentsMounted]="true">
+                  <ng-template>
+                    <ion-datetime id="start-date"></ion-datetime>
+                  </ng-template>
+                </ion-modal>
+              </ion-row>
 
-            <ion-row>
-              <ion-col>
-                <ion-button class="main-btn" color="tertiary" fill="clear"><ion-icon slot="start" name="checkmark-outline"></ion-icon>Done</ion-button>
-              </ion-col>
-            </ion-row>
+              <ion-row>
+                <ion-col size="3" class="field-title">
+                  End Date:
+                </ion-col>
+                <ion-col class="date-button-container">
+                  <ion-datetime-button datetime="end-date" name="end-date" [(ngModel)]="endDateValue"></ion-datetime-button>
+                </ion-col>
+                <ion-modal [keepContentsMounted]="true">
+                  <ng-template>
+                    <ion-datetime id="end-date"></ion-datetime>
+                  </ng-template>
+                </ion-modal>
+              </ion-row>
 
+              <ion-row>
+                <ion-col size="3" class="field-title">
+                  Images:
+                </ion-col>
+                <ion-col>
+                  <ion-button color="tertiary" fill="clear"><ion-icon slot="start" name="cloud-upload-outline"></ion-icon>Upload</ion-button>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col size="3" class="field-title">
+                  Description:
+                </ion-col>
+                <ion-col>
+                  <ion-textarea name="description" placeholder="Enter your description here" color="tertiary" [(ngModel)]="descriptionValue"></ion-textarea>
+                </ion-col>
+              </ion-row>
+            
+              <ion-row>
+                <ion-col size="3" class="field-title">
+                  Tags:
+                </ion-col>
+                <ion-col>
+                  <app-tag-selector [selectedTags]="tagsValue" (onTagUpdate)="tagsValue"></app-tag-selector>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-button class="main-btn" color="tertiary" fill="clear" (click)="validateAchievement()"><ion-icon slot="start" name="checkmark-outline"></ion-icon>Done</ion-button>
+                </ion-col>
+              </ion-row>
+            </form>
             
           </ion-grid>
         </div>

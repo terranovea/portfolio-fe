@@ -32,6 +32,6 @@ export class LoginFormComponent  implements OnInit {
     console.log(sessionStorage.getItem("token"));
     console.log(sessionStorage.getItem("pfpUrl"));
 
-    this.router.navigate([`achiever/${userID}`])
+    this.router.navigate([`achiever/${sessionStorage.getItem('userID')}`])
   }
 }

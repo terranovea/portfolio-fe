@@ -8,23 +8,10 @@
 
       <app-achiever-list [achieverList]="this.filteredAchievers"></app-achiever-list>
 
+      <app-tag-selector [isButtonBlock]="true" buttonText="Filter by Tags" [selectedTags]="selectedTags" (onTagUpdate)="selectedTags"></app-tag-selector>
 
-      <ion-button id="openTagModal" color="tertiary" fill="clear" expand="block">Filter by tags</ion-button>
-      <ion-modal trigger="openTagModal" #tagModal>
-        <ng-template>
-          <ion-toolbar>
-            <ion-buttons slot="end">
-              <ion-button (click)="closeModal()">close</ion-button>
-            </ion-buttons>
-          </ion-toolbar>
-          <div class="tag-list">
-            <app-tag [selectable]="true" *ngFor="let tag of allTags" [selected]="selectedTags.includes(tag)" [tagName]="tag" (tagToggled)="onToggleTag(tag)"></app-tag>
-          </div>
-        </ng-template>
-      </ion-modal>
-
-      <div class="tag-list">
-        <app-tag *ngFor="let tag of selectedTags" [tagName]="tag" (tagToggled)="onToggleTag(tag)"></app-tag>
+      <div class="flex-container">
+        <app-tag *ngFor="let tag of selectedTags" [tagName]="tag"></app-tag>
       </div>
 
     </div>
