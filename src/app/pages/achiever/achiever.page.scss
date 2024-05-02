@@ -33,17 +33,17 @@
     align-items: center;
     flex-wrap:wrap;
     min-height:calc(var(--article-content-width)/3*2);
-    height:100vh;
+    height:32rem;
   }
   
   .about-me-center-container
   {
-    --gap:2em;
+    --gap:2rem;
     display:flex;
     justify-content: center;
     align-items: center;
     gap:var(--gap);
-    margin:2em;
+    margin:2rem;
     flex-wrap:wrap;
     width:var(--article-content-width);
   }
@@ -63,8 +63,8 @@
   
   .pfp
   {
-    min-width:12em;
+    min-width:12rem;
     max-width:calc(var(--article-content-width)/2 - var(--gap)/2);
-    border-radius:1em;
+    border-radius:1rem;
     overflow: hidden;
   }

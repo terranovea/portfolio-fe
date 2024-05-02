@@ -12,7 +12,7 @@ Bugs:
 - Why isn't the footer in linkbar transparent?
 
 Optimisations:
-- Fix RouterLink on components
+- Fix RouterLink on components (💚 FIXED)
 - Redesign Data query structure (store achievment list in session data maybe)
 
 Order:

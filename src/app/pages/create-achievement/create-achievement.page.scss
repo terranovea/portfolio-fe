@@ -48,3 +48,11 @@ ion-datetime-button
 {
     font-size:0.9em;
 }
+
+.tag-container
+{
+    display:flex;
+    justify-items: start;
+    align-items: center;
+    flex-wrap: wrap;
+}

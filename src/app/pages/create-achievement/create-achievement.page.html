@@ -70,6 +70,9 @@
                 </ion-col>
                 <ion-col>
                   <app-tag-selector [selectedTags]="tagsValue" (onTagUpdate)="tagsValue"></app-tag-selector>
+                  <div class="tag-container">
+                    <app-tag *ngFor="let tag of tagsValue" [tagName]="tag"></app-tag>
+                  </div>
                 </ion-col>
               </ion-row>
 

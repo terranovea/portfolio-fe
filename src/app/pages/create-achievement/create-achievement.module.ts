@@ -8,6 +8,7 @@ import { CreateAchievementPageRoutingModule } from './create-achievement-routing
 
 import { CreateAchievementPage } from './create-achievement.page';
 import { TagSelectorModule } from 'src/app/components/tag-selector/tag-selector.module';
+import { TagModule } from 'src/app/components/tag/tag.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { TagSelectorModule } from 'src/app/components/tag-selector/tag-selector.
     FormsModule,
     IonicModule,
     CreateAchievementPageRoutingModule,
-    TagSelectorModule
+    TagSelectorModule,
+    TagModule
   ],
   declarations: [CreateAchievementPage]
 })

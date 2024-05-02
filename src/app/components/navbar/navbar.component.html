@@ -1,12 +1,12 @@
 <ion-toolbar id="content">
   <div class="flex-container">
     <app-toolbar-searchbar *ngIf="hasSearchbar"></app-toolbar-searchbar>
-    <ion-button color="primary" fill="clear" [href]="'/'">
+    <ion-button color="primary" fill="clear" [routerLink]="'/'">
       <ion-icon name="home-outline" slot="start" ></ion-icon>
       Home
     </ion-button>
 
-    <ion-button *ngIf="!isLoggedIn" color="primary" fill="clear" [href]="'/login'">
+    <ion-button *ngIf="!isLoggedIn" color="primary" fill="clear" [routerLink]="'/login'">
       <ion-icon name="log-in-outline" slot="start"></ion-icon>
       Log in
     </ion-button>
@@ -31,7 +31,7 @@
   </ion-header>
   <ion-content class="ion-padding">
     <ion-list>
-      <ion-item [href]="'achiever/'+userID">
+      <ion-item [routerLink]="'achiever/'+userID">
         <ion-avatar slot="start">
           <img *ngIf="imgUrl!=null" [src]="imgUrl" />
           <img *ngIf="imgUrl==null" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
@@ -39,7 +39,7 @@
         <ion-label>{{username}}</ion-label>
       </ion-item>
       <ion-item>
-        <ion-button color="danger" fill="clear" (click)="logOut()" href="/">
+        <ion-button color="danger" fill="clear" (click)="logOut()" routerLink="/">
           Log-out
         </ion-button>
       </ion-item>
