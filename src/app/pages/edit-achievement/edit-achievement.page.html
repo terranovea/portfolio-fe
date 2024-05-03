@@ -1,0 +1,43 @@
+<ion-content>
+  <app-navbar></app-navbar>
+  <div class="flex-container">
+    <div class="achiev-article">
+      <div>
+        <ion-title class="big">
+          <div class="ion-text-wrap">{{achiev?.title}}</div>
+        </ion-title>
+        <ion-text class="date">
+          {{achiev?.startDate | date:"mediumDate"}} - {{achiev?.endDate | date:"mediumDate"}}
+        </ion-text>
+      </div>
+
+      <div class="gallery-placeholder">
+        <ion-img [src]="achiev?.imgUrl" alt="No img found"></ion-img>
+      </div>
+
+      <div>
+
+
+        <br>
+        <ion-text>
+          {{achiev?.desc}}
+        </ion-text>
+      </div>
+
+      <div>
+        Tags:
+      </div>
+      <div class="tag-list">
+        <app-tag *ngFor="let tag of achiev?.tags" [tagName]="tag"></app-tag>
+      </div>
+    </div>
+    <app-contact-form [bigTitle]="false"></app-contact-form>
+  </div>
+
+
+</ion-content>
+
+
+<ion-footer>
+  <app-linkbar></app-linkbar>
+</ion-footer>

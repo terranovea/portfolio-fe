@@ -1,18 +1,15 @@
 Web Design:
-- Add coloured toasts to create-achievement (💚 DONE)
-    that depend on field validation
-- Implement specific working validation on create-achievement
-- Add profile navigation in account menu (💚 DONE)
+- Implement specific working validation on create-achievement (maybe after backend is developped)
 - Add a clickable + tag to create new tags
+- Implement achievement editing
 - Implement profile editing
 - Create employer component
-    to display next to every achievement that has an employer
+    to display next to every achievement that has an employer (maybe superfluous)
 
 Bugs:
 - Why isn't the footer in linkbar transparent?
 
 Optimisations:
-- Fix RouterLink on components (💚 FIXED)
 - Redesign Data query structure (store achievment list in session data maybe)
 
 Order:

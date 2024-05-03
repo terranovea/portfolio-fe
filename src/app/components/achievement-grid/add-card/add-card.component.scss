@@ -4,6 +4,7 @@ ion-card
 
     width:14rem;
     height:calc(100% - 1.2rem); //really, it should depend on the padding of the other cards
+    min-height:14rem;//on vertical screens, it should really be as tall as it is wide
 
     display: flex;
     justify-content: center;
